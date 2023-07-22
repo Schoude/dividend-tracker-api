@@ -80,8 +80,6 @@ export async function scrapeTimeline() {
       const sub =
         `sub 1 {"type": "${WS_CONNECTION_TYPE.TIMELINE}", "after": "${timeline.cursors.after}" ,"token": "${TR_SESSION}"}`;
 
-      console.log(`res-sub: ${sub}`);
-
       trSocket.send(
         sub,
       );
