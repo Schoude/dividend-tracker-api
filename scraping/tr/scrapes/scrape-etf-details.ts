@@ -1,4 +1,4 @@
-import { bgRed, bold } from 'std/fmt/colors.ts';
+import { bgRed, bold, green } from 'std/fmt/colors.ts';
 import { authorize } from '../auth.ts';
 import {
   TR_OUTPUT_FOLDER_PATH,
@@ -98,6 +98,8 @@ async function scrapeETFInstruments() {
       `${TR_OUTPUT_FOLDER_PATH}/etf-details.ts`,
       fileContent,
     );
+
+    console.log(green(bold(`ETF details scraped: ${etfDetails.length}`)));
   };
 }
 

@@ -1,4 +1,4 @@
-import { bgRed, bold } from 'std/fmt/colors.ts';
+import { bgRed, bold, green } from 'std/fmt/colors.ts';
 import { authorize } from '../auth.ts';
 import {
   TR_OUTPUT_FOLDER_PATH,
@@ -104,6 +104,12 @@ async function scrapePriceSnapshots() {
     Deno.writeTextFileSync(
       `${TR_OUTPUT_FOLDER_PATH}/price-snapshots.ts`,
       fileContent,
+    );
+
+    console.log(
+      green(
+        bold(`Price snapshots scraped: ${instrumentPriceSnapshots.length}`),
+      ),
     );
   };
 }

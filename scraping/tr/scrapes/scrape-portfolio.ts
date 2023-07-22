@@ -1,4 +1,4 @@
-import { bgRed } from 'std/fmt/colors.ts';
+import { bgRed, bold, green } from 'std/fmt/colors.ts';
 import { authorize } from '../auth.ts';
 import {
   TR_OUTPUT_FOLDER_PATH,
@@ -53,6 +53,10 @@ async function scrapePortfolio() {
     Deno.writeTextFileSync(
       `${TR_OUTPUT_FOLDER_PATH}/positions.ts`,
       fileContent,
+    );
+
+    console.log(
+      green(bold(`Portfolio scraped: ${positionsData.positions.length}`)),
     );
   };
 }

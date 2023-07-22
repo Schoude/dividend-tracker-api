@@ -1,4 +1,4 @@
-import { bgRed } from 'std/fmt/colors.ts';
+import { bgRed, bold, green } from 'std/fmt/colors.ts';
 import {
   TR_OUTPUT_FOLDER_PATH,
   TR_SESSION_KEY,
@@ -138,6 +138,10 @@ async function scrapeWatchlist() {
     Deno.writeTextFileSync(
       `${TR_OUTPUT_FOLDER_PATH}/watchlist-instruments.ts`,
       fileContent,
+    );
+
+    console.log(
+      green(bold(`Watchlist scraped: ${instrumentsSaveable.length}`)),
     );
   };
 }
