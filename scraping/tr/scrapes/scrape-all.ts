@@ -18,16 +18,17 @@ Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/etf-details.ts`, '');
 Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/stock-details.ts`, '');
 Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/price-snapshots.ts`, '');
 
-console.log(green(bold('Scraping finished.')));
-
 await scrapePortfolio();
 await scrapeInstruments();
 await scrapeWatchlist();
 await scrapeETFDetails();
 await scrapeStockDetails();
 await scrapePriceSnapshots();
+
 const timeEnd = performance.now();
 
 console.log(
-  green(bold(`Scraping finished in ${(timeEnd - timeStart) / 1000}s.`)),
+  green(
+    bold(`Scraping finished in ${((timeEnd - timeStart) / 1000).toFixed(4)}s.`),
+  ),
 );
