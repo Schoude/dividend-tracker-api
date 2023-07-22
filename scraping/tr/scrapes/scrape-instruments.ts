@@ -10,8 +10,13 @@ import { extractJSONFromString, extractSubId } from '../utils.ts';
 import { createTrSocket } from '../websocket.ts';
 import { kv } from '../kv/index.ts';
 import { authorize } from '../auth.ts';
+import { parse } from 'std/flags/mod.ts';
 
-async function scrapeInstruments() {
+const flags = parse(Deno.args, {
+  boolean: ['cli'],
+});
+
+export async function scrapeInstruments() {
   const instruments: InstrumentSaveable[] = [];
 
   const { trSocket, TR_SESSION } = await createTrSocket();
@@ -107,4 +112,6 @@ async function scrapeInstruments() {
   };
 }
 
-scrapeInstruments();
+if (flags.cli) {
+  scrapeInstruments();
+}

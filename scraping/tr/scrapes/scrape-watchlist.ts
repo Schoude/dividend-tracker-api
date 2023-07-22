@@ -10,8 +10,13 @@ import { createTrSocket } from '../websocket.ts';
 import { kv } from '../kv/index.ts';
 import { authorize } from '../auth.ts';
 import type { Watchlist } from '../types/watchlist.ts';
+import { parse } from 'std/flags/mod.ts';
 
-async function scrapeWatchlist() {
+const flags = parse(Deno.args, {
+  boolean: ['cli'],
+});
+
+export async function scrapeWatchlist() {
   let watchList: Watchlist;
   const instrumentsSaveable: InstrumentSaveable[] = [];
   let processedInstrumentsCount = 0;
@@ -146,4 +151,6 @@ async function scrapeWatchlist() {
   };
 }
 
-scrapeWatchlist();
+if (flags.cli) {
+  scrapeWatchlist();
+}

@@ -12,6 +12,11 @@ import { instruments } from '../output/instruments.ts';
 import { instrumentsWatchlist } from '../output/watchlist-instruments.ts';
 import type { InstrumentSaveable } from '../types/instrument.ts';
 import { ETFDetail } from '../types/etf-detail.ts';
+import { parse } from 'std/flags/mod.ts';
+
+const flags = parse(Deno.args, {
+  boolean: ['cli'],
+});
 
 const instrumentsCompleteFunds: InstrumentSaveable[] = instruments.concat(
   instrumentsWatchlist as InstrumentSaveable[],
@@ -19,7 +24,7 @@ const instrumentsCompleteFunds: InstrumentSaveable[] = instruments.concat(
 const etfDetails: ETFDetail[] = [];
 let processedETFCount = 0;
 
-async function scrapeETFInstruments() {
+export async function scrapeETFDetails() {
   const { trSocket, TR_SESSION } = await createTrSocket();
 
   trSocket.onopen = () => {
@@ -60,7 +65,7 @@ async function scrapeETFInstruments() {
 
       await kv.delete([TR_SESSION_KEY]);
 
-      await authorize(scrapeETFInstruments);
+      await authorize(scrapeETFDetails);
       return;
     }
 
@@ -102,5 +107,6 @@ async function scrapeETFInstruments() {
     console.log(green(bold(`ETF details scraped: ${etfDetails.length}`)));
   };
 }
-
-scrapeETFInstruments();
+if (flags.cli) {
+  scrapeETFDetails();
+}

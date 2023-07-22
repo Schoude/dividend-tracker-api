@@ -1,3 +1,5 @@
+scraping/tr/output
+
 *.db
 stocks.json
 .env

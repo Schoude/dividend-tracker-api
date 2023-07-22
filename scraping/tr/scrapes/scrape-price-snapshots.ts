@@ -12,6 +12,11 @@ import { instruments } from '../output/instruments.ts';
 import { instrumentsWatchlist } from '../output/watchlist-instruments.ts';
 import type { InstrumentSaveable } from '../types/instrument.ts';
 import { PriceSnapshot, TickData } from '../types/price-snapshots.ts';
+import { parse } from 'std/flags/mod.ts';
+
+const flags = parse(Deno.args, {
+  boolean: ['cli'],
+});
 
 const instrumentsComplete: InstrumentSaveable[] = instruments.concat(
   instrumentsWatchlist as InstrumentSaveable[],
@@ -21,7 +26,7 @@ const instrumentsComplete: InstrumentSaveable[] = instruments.concat(
 const instrumentPriceSnapshots: PriceSnapshot[] = [];
 let processedInstrumentsCount = 0;
 
-async function scrapePriceSnapshots() {
+export async function scrapePriceSnapshots() {
   const { trSocket, TR_SESSION } = await createTrSocket();
 
   trSocket.onopen = () => {
@@ -114,4 +119,6 @@ async function scrapePriceSnapshots() {
   };
 }
 
-scrapePriceSnapshots();
+if (flags.cli) {
+  scrapePriceSnapshots();
+}

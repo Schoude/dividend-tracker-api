@@ -15,6 +15,11 @@ import type {
   StockDetail,
   StockDetailSaveable,
 } from '../types/stock-detail.ts';
+import { parse } from 'std/flags/mod.ts';
+
+const flags = parse(Deno.args, {
+  boolean: ['cli'],
+});
 
 const instrumentsCompleteStocks: InstrumentSaveable[] = instruments.concat(
   instrumentsWatchlist as InstrumentSaveable[],
@@ -22,7 +27,7 @@ const instrumentsCompleteStocks: InstrumentSaveable[] = instruments.concat(
 const stockDetailsSaveable: StockDetailSaveable[] = [];
 let processedStocksCount = 0;
 
-async function scrapeStockInstruments() {
+export async function scrapeStockDetails() {
   const { trSocket, TR_SESSION } = await createTrSocket();
 
   trSocket.onopen = () => {
@@ -63,7 +68,7 @@ async function scrapeStockInstruments() {
 
       await kv.delete([TR_SESSION_KEY]);
 
-      await authorize(scrapeStockInstruments);
+      await authorize(scrapeStockDetails);
       return;
     }
 
@@ -113,4 +118,6 @@ async function scrapeStockInstruments() {
   };
 }
 
-scrapeStockInstruments();
+if (flags.cli) {
+  scrapeStockDetails();
+}

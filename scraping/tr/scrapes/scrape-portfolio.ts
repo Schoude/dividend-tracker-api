@@ -9,8 +9,13 @@ import { kv } from '../kv/index.ts';
 import { PositionsData } from '../types/position.ts';
 import { extractJSONFromString } from '../utils.ts';
 import { createTrSocket } from '../websocket.ts';
+import { parse } from 'std/flags/mod.ts';
 
-async function scrapePortfolio() {
+const flags = parse(Deno.args, {
+  boolean: ['cli'],
+});
+
+export async function scrapePortfolio() {
   const { trSocket, TR_SESSION } = await createTrSocket();
 
   trSocket.onopen = () => {
@@ -61,4 +66,6 @@ async function scrapePortfolio() {
   };
 }
 
-scrapePortfolio();
+if (flags.cli) {
+  scrapePortfolio();
+}
