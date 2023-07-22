@@ -103,7 +103,9 @@ export async function scrapeStockDetails() {
   };
 
   trSocket.onclose = () => {
-    const fileContent = `export const stockDetails = ${
+    const fileContent = `
+    import type { StockDetailSaveable } from '../types/stock-detail.ts';
+    export const stockDetails: StockDetailSaveable[] = ${
       JSON.stringify(stockDetailsSaveable)
     }`;
 

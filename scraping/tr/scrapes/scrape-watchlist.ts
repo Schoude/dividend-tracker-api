@@ -136,7 +136,9 @@ export async function scrapeWatchlist() {
   });
 
   trSocket.onclose = () => {
-    const fileContent = `export const instrumentsWatchlist = ${
+    const fileContent = `
+    import type { InstrumentSaveable } from '../types/instrument.ts';
+    export const instrumentsWatchlist: InstrumentSaveable[] = ${
       JSON.stringify(instrumentsSaveable)
     }`;
 

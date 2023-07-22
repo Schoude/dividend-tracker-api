@@ -102,7 +102,9 @@ export async function scrapePriceSnapshots() {
   };
 
   trSocket.onclose = () => {
-    const fileContent = `export const priceSnapshots = ${
+    const fileContent = `
+    import { PriceSnapshot } from '../types/price-snapshots.ts';
+    export const priceSnapshots: PriceSnapshot[] = ${
       JSON.stringify(instrumentPriceSnapshots)
     }`;
 

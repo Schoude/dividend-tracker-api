@@ -1,9 +1,3 @@
-// Latest
-// before: '82208dea-21df-4cd8-9bd0-4f79cd90dd61'
-
-// First
-// after: 226e619f-6206-4337-8345-04b38cabfb75
-
 import { bgRed, bold, green } from 'std/fmt/colors.ts';
 import { authorize } from '../auth.ts';
 import {
@@ -16,10 +10,17 @@ import { extractJSONFromString } from '../utils.ts';
 import { createTrSocket } from '../websocket.ts';
 import { parse } from 'std/flags/mod.ts';
 import { Datum, Timeline } from '../types/timeline.ts';
+import { instruments } from '../output/instruments.ts';
+import { instrumentsWatchlist } from '../output/watchlist-instruments.ts';
+import { InstrumentSaveable } from '../types/instrument.ts';
 
 const flags = parse(Deno.args, {
   boolean: ['cli'],
 });
+
+const availableInstruments: string[] =
+  ([...instruments, ...instrumentsWatchlist] as (InstrumentSaveable)[])
+    .map((instrument) => instrument.company.name);
 
 const timelineResults: Datum[] = [];
 
@@ -65,9 +66,10 @@ export async function scrapeTimeline() {
     const timeline = JSON.parse(jsonString) as Timeline;
 
     const inlcludedData = timeline.data.filter((item) => {
-      return item.data.body?.includes('Kauf zu') ||
+      return (item.data.body?.includes('Kauf zu') ||
         item.data.body?.includes('Verkauf zu') ||
-        item.data.body?.includes('Sparplan ausgeführt');
+        item.data.body?.includes('Sparplan ausgeführt')) &&
+        availableInstruments.includes(item.data.title);
     });
 
     // re-sub to the timeline always with the first entry of the result as "after"
@@ -99,7 +101,7 @@ export async function scrapeTimeline() {
     );
 
     console.log(
-      green(bold(`Portfolio scraped. ${timelineResults.length} Items`)),
+      green(bold(`Timeline scraped. ${timelineResults.length} Items`)),
     );
   };
 }

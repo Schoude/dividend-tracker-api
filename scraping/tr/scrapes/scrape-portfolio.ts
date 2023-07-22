@@ -51,7 +51,9 @@ export async function scrapePortfolio() {
 
     const positionsData = JSON.parse(jsonString) as PositionsData;
 
-    const fileContent = `export const positions = ${
+    const fileContent = `
+    import { Position } from '../types/position.ts';
+    export const positions: Position[] = ${
       JSON.stringify(positionsData.positions)
     }`;
 

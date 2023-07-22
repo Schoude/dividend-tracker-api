@@ -1,4 +1,4 @@
-interface Position {
+export interface Position {
   instrumentId: string;
   netSize: string;
   averageBuyIn: string;

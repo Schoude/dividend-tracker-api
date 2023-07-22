@@ -99,7 +99,9 @@ export async function scrapeInstruments() {
   };
 
   trSocket.onclose = () => {
-    const fileContent = `export const instruments = ${
+    const fileContent = `
+    import { InstrumentSaveable } from '../types/instrument.ts';
+    export const instruments: InstrumentSaveable[] = ${
       JSON.stringify(instruments)
     }`;
 

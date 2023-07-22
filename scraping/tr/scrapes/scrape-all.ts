@@ -11,19 +11,44 @@ import { scrapeWatchlist } from './scrape-watchlist.ts';
 
 const timeStart = performance.now();
 
-Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/positions.ts`, '');
-Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/instruments.ts`, '');
-Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/watchlist-instruments.ts`, '');
-Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/etf-details.ts`, '');
-Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/stock-details.ts`, '');
-Deno.writeTextFileSync(`${TR_OUTPUT_FOLDER_PATH}/price-snapshots.ts`, '');
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/positions.ts`,
+  `import type { Position } from '../types/position.ts';
+export const positions: Position[] = [];`,
+);
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/instruments.ts`,
+  `import type { InstrumentSaveable } from '../types/instrument.ts';
+export const instruments: InstrumentSaveable[] = [];`,
+);
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/watchlist-instruments.ts`,
+  `import type { InstrumentSaveable } from '../types/instrument.ts';
+export const instrumentsWatchlist:InstrumentSaveable[] = [];
+  `,
+);
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/etf-details.ts`,
+  `import type { ETFDetail } from '../types/etf-detail.ts';
+export const etfDetails: ETFDetail[] = [];`,
+);
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/stock-details.ts`,
+  `import type { StockDetailSaveable } from '../types/stock-detail.ts';
+export const stockDetails: StockDetailSaveable[] = [];`,
+);
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/price-snapshots.ts`,
+  `import type { PriceSnapshot } from '../types/price-snapshots.ts';
+export const priceSnapshots: PriceSnapshot[] = [];`,
+);
 
-await scrapePortfolio();
-await scrapeInstruments();
-await scrapeWatchlist();
-await scrapeETFDetails();
-await scrapeStockDetails();
-await scrapePriceSnapshots();
+// await scrapePortfolio();
+// await scrapeInstruments();
+// await scrapeWatchlist();
+// await scrapeETFDetails();
+// await scrapeStockDetails();
+// await scrapePriceSnapshots();
 
 const timeEnd = performance.now();
 

@@ -11,7 +11,7 @@ import { createTrSocket } from '../websocket.ts';
 import { instruments } from '../output/instruments.ts';
 import { instrumentsWatchlist } from '../output/watchlist-instruments.ts';
 import type { InstrumentSaveable } from '../types/instrument.ts';
-import { ETFDetail } from '../types/etf-detail.ts';
+import type { ETFDetail } from '../types/etf-detail.ts';
 import { parse } from 'std/flags/mod.ts';
 
 const flags = parse(Deno.args, {
@@ -95,7 +95,9 @@ export async function scrapeETFDetails() {
   };
 
   trSocket.onclose = () => {
-    const fileContent = `export const etfDetails = ${
+    const fileContent = `
+    import type { ETFDetail } from '../types/etf-detail.ts';
+    export const etfDetails: ETFDetail[] = ${
       JSON.stringify(etfDetails)
     }`;
 
