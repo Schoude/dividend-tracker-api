@@ -8,6 +8,7 @@ import { scrapePortfolio } from './scrape-portfolio.ts';
 import { scrapePriceSnapshots } from './scrape-price-snapshots.ts';
 import { scrapeStockDetails } from './scrape-stock-details.ts';
 import { scrapeWatchlist } from './scrape-watchlist.ts';
+import { scrapeTimeline } from './scrape-timeline.ts';
 
 const timeStart = performance.now();
 
@@ -42,6 +43,16 @@ Deno.writeTextFileSync(
   `import type { PriceSnapshot } from '../types/price-snapshots.ts';
 export const priceSnapshots: PriceSnapshot[] = [];`,
 );
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/timeline.ts`,
+  `import type { TimelineDatum } from '../types/timeline.ts';
+  export const timeline: TimelineDatum[] = [];`,
+);
+Deno.writeTextFileSync(
+  `${TR_OUTPUT_FOLDER_PATH}/timeline-details.ts`,
+  `import type { TimelineOrderDetail } from '../types/timeline-detail.ts';
+export const timelineDetails: TimelineOrderDetail[] = [];`,
+);
 
 await scrapePortfolio();
 await scrapeInstruments();
@@ -49,6 +60,7 @@ await scrapeWatchlist();
 await scrapeETFDetails();
 await scrapeStockDetails();
 await scrapePriceSnapshots();
+await scrapeTimeline();
 
 const timeEnd = performance.now();
 

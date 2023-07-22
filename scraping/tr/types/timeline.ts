@@ -1,5 +1,5 @@
 export interface Timeline {
-  data: Datum[];
+  data: TimelineDatum[];
   cursors: Cursors;
 }
 
@@ -8,7 +8,7 @@ interface Cursors {
   after: string;
 }
 
-export interface Datum {
+export interface TimelineDatum {
   type: DatumType;
   data: Data;
 }
@@ -22,7 +22,7 @@ interface Data {
   cashChangeAmount?: number;
   action?: Action;
   attributes: Attribute[];
-  month: Month;
+  month: string;
 }
 
 interface Action {
@@ -30,9 +30,7 @@ interface Action {
   payload: string;
 }
 
-enum ActionType {
-  TimelineDetail = 'timelineDetail',
-}
+type ActionType = 'timelineDetail';
 
 interface Attribute {
   location: number;
@@ -40,10 +38,4 @@ interface Attribute {
   type: string;
 }
 
-enum Month {
-  The202304 = '2023-04',
-}
-
-enum DatumType {
-  TimelineEvent = 'timelineEvent',
-}
+type DatumType = 'timelineEvent';

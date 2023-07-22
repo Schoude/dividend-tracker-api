@@ -9,7 +9,7 @@ const phoneNumber = env['PHONE'];
 const pin = env['PIN'];
 
 const flags = parse(Deno.args, {
-  boolean: ['cli'],
+  boolean: ['cli-auth'],
 });
 
 const credentials = {
@@ -82,6 +82,7 @@ export async function authorize(reAuthorizedCallback?: () => void) {
   }
 }
 
-if (flags.cli) {
+if (flags['cli-auth']) {
+  console.log('run auth.ts from cli');
   authorize();
 }
