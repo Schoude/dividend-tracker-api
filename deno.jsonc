@@ -11,6 +11,7 @@
     "scrape:etf-details": "deno run -A --unstable ./scraping/tr/scrapes/scrape-etf-details.ts --cli",
     "scrape:stock-details": "deno run -A --unstable ./scraping/tr/scrapes/scrape-stock-details.ts --cli",
     "scrape:price-snapshots": "deno run -A --unstable ./scraping/tr/scrapes/scrape-price-snapshots.ts --cli",
+    "scrape:timeline": "deno run -A --unstable ./scraping/tr/scrapes/scrape-timeline.ts --cli",
     "scrape:all": "deno run -A --unstable ./scraping/tr/scrapes/scrape-all.ts",
     // DB setup
     "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",

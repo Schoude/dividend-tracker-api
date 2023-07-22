@@ -8,7 +8,7 @@ interface Cursors {
   after: string;
 }
 
-interface Datum {
+export interface Datum {
   type: DatumType;
   data: Data;
 }
@@ -18,7 +18,7 @@ interface Data {
   timestamp: number;
   icon: string;
   title: string;
-  body: string;
+  body?: string;
   cashChangeAmount?: number;
   action?: Action;
   attributes: Attribute[];
