@@ -43,12 +43,12 @@ Deno.writeTextFileSync(
 export const priceSnapshots: PriceSnapshot[] = [];`,
 );
 
-// await scrapePortfolio();
-// await scrapeInstruments();
-// await scrapeWatchlist();
-// await scrapeETFDetails();
-// await scrapeStockDetails();
-// await scrapePriceSnapshots();
+await scrapePortfolio();
+await scrapeInstruments();
+await scrapeWatchlist();
+await scrapeETFDetails();
+await scrapeStockDetails();
+await scrapePriceSnapshots();
 
 const timeEnd = performance.now();
 

@@ -27,7 +27,7 @@ export interface Instrument {
   nextGenName: string;
   alarmsName: string;
   homeSymbol: string;
-  intlSymbol: string;
+  intlSymbol: string | null;
   homeNsin: string;
   tags: Tag[];
   derivativeProductCount: DerivativeProductCount;
@@ -268,9 +268,9 @@ type DerivativeProductCount = Record<string, unknown>;
 
 interface Company {
   name: string;
-  description: null;
-  ipoDate: number;
-  countryOfOrigin: string;
+  description: string | null;
+  ipoDate: number | null;
+  countryOfOrigin: string | null;
 }
 
 interface MarketCap {

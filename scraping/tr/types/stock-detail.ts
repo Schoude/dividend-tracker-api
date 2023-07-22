@@ -52,20 +52,20 @@ export interface TargetPrice {
 export interface Company {
   name: string;
   description: string;
-  yearFounded: number;
+  yearFounded: number | null;
   tickerSymbol: string;
-  peRatioSnapshot: null;
-  pbRatioSnapshot: number;
-  dividendYieldSnapshot: number;
+  peRatioSnapshot: number | null;
+  pbRatioSnapshot: number | null;
+  dividendYieldSnapshot: number | null;
   earningsCall: null;
-  marketCapSnapshot: number;
+  marketCapSnapshot: number | null;
   dailyCloseYearSD: null;
-  beta: number;
+  beta: number | null;
   countryCode: string;
-  ceoName: null;
-  cfoName: string;
-  cooName: null;
-  employeeCount: number;
+  ceoName: string | null;
+  cfoName: string | null;
+  cooName: string | null;
+  employeeCount: number | null;
   eps: number;
 }
 
@@ -87,12 +87,13 @@ export interface Event {
   webcastUrl: null;
 }
 
-export enum Title {
-  Dividende = 'Dividende',
-  EarningsCall = 'Earnings Call',
-  FinancialsRelease = 'Financials Release',
-  Hauptversammlung = 'Hauptversammlung',
-}
+export type Title =
+  | 'Dividende'
+  | 'Earnings Call'
+  | 'Financials Release'
+  | 'Hauptversammlung'
+  | 'Financials Release'
+  | 'Analyst  Presentation';
 
 export interface SimilarStock {
   isin: string;
@@ -107,7 +108,6 @@ export interface Tag {
   icon: string;
 }
 
-export enum Type {
-  Country = 'country',
-  Sector = 'sector',
-}
+export type Type =
+  | 'country'
+  | 'sector';
