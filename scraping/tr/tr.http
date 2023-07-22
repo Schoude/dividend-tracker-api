@@ -1,0 +1,22 @@
+@baseUrl = https://api.traderepublic.com/api
+
+### Login
+# @name login
+POST {{baseUrl}}/v1/auth/web/login HTTP/1.1
+content-type: application/json
+
+{
+  "phoneNumber":"+4917663422263",
+  "pin":"1212"
+}
+
+@processId = {{login.response.body.processId}}
+@pin = 7248
+
+### 2Fa
+POST {{baseUrl}}/v1/auth/web/login/{{processId}}/{{pin}}
+
+## tr_session is the most important cookie
+
+### Account
+GET {{baseUrl}}/v2/auth/account

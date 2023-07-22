@@ -1,0 +1,1195 @@
+{
+  "isin": "US00123Q1040",
+  "company": {
+    "name": "AGNC Investment Corp",
+    "description": "AGNC Investment Corp. stellt dem Wohnungsmarkt der Vereinigten Staaten privates Kapital zur Verfügung, erhöht die Liquidität auf den Hypothekenmärkten für Wohnimmobilien und erleichtert im Gegenzug den Erwerb von Eigenheimen in den Vereinigten Staaten. Die Gesellschaft investiert hauptsächlich in durch Hypothekendarlehen besicherte Wertpapiere von Agenturen (Agentur-RMBS) auf gehebelter Basis. Diese Anlagen bestehen aus Pass-Through-Wertpapieren für Wohnhypotheken und besicherten Hypothekenobligationen, für die die Kapital- und Zinszahlungen von einem von der US-Regierung geförderten Unternehmen wie der Federal National Mortgage Association (Fannie Mae) und der Federal Home Loan Mortgage garantiert werden Corporation (Freddie Mac und zusammen mit Fannie Mae die GSEs) oder von einer US-Regierungsbehörde wie der Government National Mortgage Association (Ginnie Mae). Er kann auch in andere Vermögenswerte im Zusammenhang mit den Wohnungs-, Hypotheken- oder Immobilienmärkten investieren, die nicht von einer GSE oder einer Regierungsbehörde der Vereinigten Staaten garantiert sind.",
+    "yearFounded": 2008,
+    "tickerSymbol": "4OQ1",
+    "peRatioSnapshot": null,
+    "pbRatioSnapshot": 0.98,
+    "dividendYieldSnapshot": 0.14104,
+    "earningsCall": null,
+    "marketCapSnapshot": 5404015992.89,
+    "dailyCloseYearSD": null,
+    "beta": 1.22565,
+    "countryCode": "US",
+    "ceoName": "Federico, Peter",
+    "cfoName": "Bell, Bernice",
+    "cooName": null,
+    "employeeCount": 51,
+    "eps": -2.142647712127943
+  },
+  "similarStocks": [
+    {
+      "isin": "CA45833V1094",
+      "name": "Inter Pipeline",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "energy",
+          "name": "Energie & Wasser",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorEnergy.png"
+        },
+        {
+          "type": "sector",
+          "id": "oil",
+          "name": "Öl & Gas",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorOil.png"
+        }
+      ]
+    },
+    {
+      "isin": "CA7063271034",
+      "name": "Pembina Pipeline",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "oil",
+          "name": "Öl & Gas",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorOil.png"
+        },
+        {
+          "type": "country",
+          "id": "CA",
+          "name": "Kanada",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/ca.png"
+        }
+      ]
+    },
+    {
+      "isin": "CA9237251058",
+      "name": "Vermilion Energy",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "energy",
+          "name": "Energie & Wasser",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorEnergy.png"
+        },
+        {
+          "type": "country",
+          "id": "CA",
+          "name": "Kanada",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/ca.png"
+        }
+      ]
+    },
+    {
+      "isin": "US04010L1035",
+      "name": "Ares Capital",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "banking",
+          "name": "Banken & Finanzen",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorBanking.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    },
+    {
+      "isin": "US0423155078",
+      "name": "Armour Residential REIT",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "realestate",
+          "name": "Immobilien",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorRealEstate.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    },
+    {
+      "isin": "US21871N1019",
+      "name": "CoreCivic",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "realestate",
+          "name": "Immobilien",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorRealEstate.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    },
+    {
+      "isin": "US36162J1060",
+      "name": "GEO Group",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "realestate",
+          "name": "Immobilien",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorRealEstate.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    },
+    {
+      "isin": "US3765361080",
+      "name": "Gladstone Commercial",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "realestate",
+          "name": "Immobilien",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorRealEstate.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    },
+    {
+      "isin": "US74348T1025",
+      "name": "Prospect Capital",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "banking",
+          "name": "Banken & Finanzen",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorBanking.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    },
+    {
+      "isin": "US85254J1025",
+      "name": "STAG Industrial",
+      "tags": [
+        {
+          "type": "sector",
+          "id": "realestate",
+          "name": "Immobilien",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/SectorRealEstate.png"
+        },
+        {
+          "type": "country",
+          "id": "US",
+          "name": "Vereinigte Staaten",
+          "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+        }
+      ]
+    }
+  ],
+  "expectedDividend": {
+    "id": "15659231",
+    "paymentDate": "2023-08-09",
+    "recordDate": "2023-07-31",
+    "exDate": "2023-07-28",
+    "amount": 0.10661928031985785,
+    "yield": null,
+    "type": "cash"
+  },
+  "dividends": [
+    {
+      "id": "15635828",
+      "paymentDate": "2023-07-12",
+      "recordDate": "2023-06-30",
+      "exDate": "2023-06-29",
+      "amount": 0.11,
+      "yield": null,
+      "type": "cash"
+    },
+    {
+      "id": "15587591",
+      "paymentDate": "2023-06-09",
+      "recordDate": "2023-05-31",
+      "exDate": "2023-05-30",
+      "amount": 0.11,
+      "yield": null,
+      "type": "cash"
+    },
+    {
+      "id": "15547178",
+      "paymentDate": "2023-05-09",
+      "recordDate": "2023-04-28",
+      "exDate": "2023-04-27",
+      "amount": 0.11,
+      "yield": null,
+      "type": "cash"
+    },
+    {
+      "id": "15511308",
+      "paymentDate": "2023-04-11",
+      "recordDate": "2023-03-31",
+      "exDate": "2023-03-30",
+      "amount": 0.11,
+      "yield": null,
+      "type": "cash"
+    },
+    {
+      "id": "15466291",
+      "paymentDate": "2023-03-09",
+      "recordDate": "2023-02-28",
+      "exDate": "2023-02-27",
+      "amount": 0.11,
+      "yield": null,
+      "type": "cash"
+    }
+  ],
+  "totalDivendendCount": 72,
+  "events": [
+    {
+      "id": "15274168",
+      "title": "Financials Release",
+      "timestamp": 1690228800000,
+      "description": "AGNC Investment Corp veröffentlicht am 24.07.2023 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15656972",
+      "title": "Earnings Call",
+      "timestamp": 1690288200000,
+      "description": "AGNC Investment Corp hat am 25.07.2023 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15659231",
+      "title": "Dividende",
+      "timestamp": 1690545600000,
+      "description": "AGNC Investment Corp wird am 28.07.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15368073",
+      "title": "Financials Release",
+      "timestamp": 1698058740000,
+      "description": "AGNC Investment Corp veröffentlicht am 23.10.2023 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15453662",
+      "title": "Financials Release",
+      "timestamp": 1706525940000,
+      "description": "AGNC Investment Corp veröffentlicht am 29.01.2024 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "5655181",
+      "title": "Hauptversammlung",
+      "timestamp": 1713531600000,
+      "description": "AGNC Investment Corp hat am 19.04.2024 Hauptversammlung.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15558890",
+      "title": "Financials Release",
+      "timestamp": 1713783540000,
+      "description": "AGNC Investment Corp veröffentlicht am 22.04.2024 Geschäftszahlen.",
+      "webcastUrl": null
+    }
+  ],
+  "pastEvents": [
+    {
+      "id": "10730495",
+      "title": "Dividende",
+      "timestamp": 1501156800000,
+      "description": "AGNC Investment Corp wird am 27.07.2017 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "10839578",
+      "title": "Dividende",
+      "timestamp": 1504008000000,
+      "description": "AGNC Investment Corp wird am 29.08.2017 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "10924629",
+      "title": "Dividende",
+      "timestamp": 1506600000000,
+      "description": "AGNC Investment Corp wird am 28.09.2017 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11016356",
+      "title": "Dividende",
+      "timestamp": 1509364800000,
+      "description": "AGNC Investment Corp wird am 30.10.2017 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11107256",
+      "title": "Dividende",
+      "timestamp": 1511956800000,
+      "description": "AGNC Investment Corp wird am 29.11.2017 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11153920",
+      "title": "Dividende",
+      "timestamp": 1514462400000,
+      "description": "AGNC Investment Corp wird am 28.12.2017 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11196962",
+      "title": "Dividende",
+      "timestamp": 1517313600000,
+      "description": "AGNC Investment Corp wird am 30.01.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11267268",
+      "title": "Dividende",
+      "timestamp": 1519732800000,
+      "description": "AGNC Investment Corp wird am 27.02.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11433702",
+      "title": "Dividende",
+      "timestamp": 1522238400000,
+      "description": "AGNC Investment Corp wird am 28.03.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11476584",
+      "title": "Dividende",
+      "timestamp": 1524830400000,
+      "description": "AGNC Investment Corp wird am 27.04.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11508631",
+      "title": "Dividende",
+      "timestamp": 1527681600000,
+      "description": "AGNC Investment Corp wird am 30.05.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11553796",
+      "title": "Dividende",
+      "timestamp": 1530187200000,
+      "description": "AGNC Investment Corp wird am 28.06.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11489044",
+      "title": "Financials Release",
+      "timestamp": 1532548866000,
+      "description": "AGNC Investment Corp veröffentlicht am 25.07.2018 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11642332",
+      "title": "Earnings Call",
+      "timestamp": 1532608200000,
+      "description": "AGNC Investment Corp hat am 26.07.2018 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11643318",
+      "title": "Dividende",
+      "timestamp": 1532952000000,
+      "description": "AGNC Investment Corp wird am 30.07.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11767423",
+      "title": "Dividende",
+      "timestamp": 1535630400000,
+      "description": "AGNC Investment Corp wird am 30.08.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11927008",
+      "title": "Dividende",
+      "timestamp": 1538049600000,
+      "description": "AGNC Investment Corp wird am 27.09.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "11675822",
+      "title": "Financials Release",
+      "timestamp": 1540411263000,
+      "description": "AGNC Investment Corp veröffentlicht am 24.10.2018 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12089085",
+      "title": "Earnings Call",
+      "timestamp": 1540470600000,
+      "description": "AGNC Investment Corp hat am 25.10.2018 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12090477",
+      "title": "Dividende",
+      "timestamp": 1540900800000,
+      "description": "AGNC Investment Corp wird am 30.10.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12186222",
+      "title": "Dividende",
+      "timestamp": 1543492800000,
+      "description": "AGNC Investment Corp wird am 29.11.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12229353",
+      "title": "Dividende",
+      "timestamp": 1545998400000,
+      "description": "AGNC Investment Corp wird am 28.12.2018 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12264987",
+      "title": "Dividende",
+      "timestamp": 1548849600000,
+      "description": "AGNC Investment Corp wird am 30.01.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12142681",
+      "title": "Financials Release",
+      "timestamp": 1548882065000,
+      "description": "AGNC Investment Corp veröffentlicht am 30.01.2019 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12259063",
+      "title": "Earnings Call",
+      "timestamp": 1548941400000,
+      "description": "AGNC Investment Corp hat am 31.01.2019 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12323802",
+      "title": "Dividende",
+      "timestamp": 1551268800000,
+      "description": "AGNC Investment Corp wird am 27.02.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12415112",
+      "title": "Dividende",
+      "timestamp": 1553774400000,
+      "description": "AGNC Investment Corp wird am 28.03.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12403833",
+      "title": "Hauptversammlung",
+      "timestamp": 1555592400000,
+      "description": "AGNC Investment Corp hat am 18.04.2019 Hauptversammlung.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12292020",
+      "title": "Financials Release",
+      "timestamp": 1556136066000,
+      "description": "AGNC Investment Corp veröffentlicht am 24.04.2019 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12457769",
+      "title": "Earnings Call",
+      "timestamp": 1556195400000,
+      "description": "AGNC Investment Corp hat am 25.04.2019 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12473429",
+      "title": "Dividende",
+      "timestamp": 1556539200000,
+      "description": "AGNC Investment Corp wird am 29.04.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12544969",
+      "title": "Dividende",
+      "timestamp": 1559217600000,
+      "description": "AGNC Investment Corp wird am 30.05.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12589801",
+      "title": "Dividende",
+      "timestamp": 1561636800000,
+      "description": "AGNC Investment Corp wird am 27.06.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12364867",
+      "title": "Financials Release",
+      "timestamp": 1563998467000,
+      "description": "AGNC Investment Corp veröffentlicht am 24.07.2019 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12613921",
+      "title": "Earnings Call",
+      "timestamp": 1564057800000,
+      "description": "AGNC Investment Corp hat am 25.07.2019 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12614811",
+      "title": "Dividende",
+      "timestamp": 1564488000000,
+      "description": "AGNC Investment Corp wird am 30.07.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13414938",
+      "title": "Dividende",
+      "timestamp": 1567080000000,
+      "description": "AGNC Investment Corp wird am 29.08.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12726839",
+      "title": "Dividende",
+      "timestamp": 1569585600000,
+      "description": "AGNC Investment Corp wird am 27.09.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12790366",
+      "title": "Dividende",
+      "timestamp": 1572436800000,
+      "description": "AGNC Investment Corp wird am 30.10.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12364833",
+      "title": "Financials Release",
+      "timestamp": 1572465664000,
+      "description": "AGNC Investment Corp veröffentlicht am 30.10.2019 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12783028",
+      "title": "Earnings Call",
+      "timestamp": 1572525000000,
+      "description": "AGNC Investment Corp hat am 31.10.2019 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12899201",
+      "title": "Dividende",
+      "timestamp": 1574856000000,
+      "description": "AGNC Investment Corp wird am 27.11.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12952522",
+      "title": "Dividende",
+      "timestamp": 1577707200000,
+      "description": "AGNC Investment Corp wird am 30.12.2019 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12364963",
+      "title": "Financials Release",
+      "timestamp": 1580331665000,
+      "description": "AGNC Investment Corp veröffentlicht am 29.01.2020 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12987047",
+      "title": "Dividende",
+      "timestamp": 1580385600000,
+      "description": "AGNC Investment Corp wird am 30.01.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12984915",
+      "title": "Earnings Call",
+      "timestamp": 1580391000000,
+      "description": "AGNC Investment Corp hat am 30.01.2020 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13042143",
+      "title": "Dividende",
+      "timestamp": 1582804800000,
+      "description": "AGNC Investment Corp wird am 27.02.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13080017",
+      "title": "Dividende",
+      "timestamp": 1585569600000,
+      "description": "AGNC Investment Corp wird am 30.03.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13056157",
+      "title": "Hauptversammlung",
+      "timestamp": 1587646800000,
+      "description": "AGNC Investment Corp hat am 23.04.2020 Hauptversammlung.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13117073",
+      "title": "Dividende",
+      "timestamp": 1588161600000,
+      "description": "AGNC Investment Corp wird am 29.04.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12684888",
+      "title": "Financials Release",
+      "timestamp": 1588190465000,
+      "description": "AGNC Investment Corp veröffentlicht am 29.04.2020 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13134053",
+      "title": "Earnings Call",
+      "timestamp": 1588249800000,
+      "description": "AGNC Investment Corp hat am 30.04.2020 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13188087",
+      "title": "Dividende",
+      "timestamp": 1590667200000,
+      "description": "AGNC Investment Corp wird am 28.05.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13228115",
+      "title": "Dividende",
+      "timestamp": 1593432000000,
+      "description": "AGNC Investment Corp wird am 29.06.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12684882",
+      "title": "Financials Release",
+      "timestamp": 1595880064000,
+      "description": "AGNC Investment Corp veröffentlicht am 27.07.2020 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13264058",
+      "title": "Earnings Call",
+      "timestamp": 1595939400000,
+      "description": "AGNC Investment Corp hat am 28.07.2020 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13267512",
+      "title": "Dividende",
+      "timestamp": 1596110400000,
+      "description": "AGNC Investment Corp wird am 30.07.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13332890",
+      "title": "Dividende",
+      "timestamp": 1598616000000,
+      "description": "AGNC Investment Corp wird am 28.08.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13397023",
+      "title": "Dividende",
+      "timestamp": 1601380800000,
+      "description": "AGNC Investment Corp wird am 29.09.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "12849962",
+      "title": "Financials Release",
+      "timestamp": 1603742464000,
+      "description": "AGNC Investment Corp veröffentlicht am 26.10.2020 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13435281",
+      "title": "Earnings Call",
+      "timestamp": 1603801800000,
+      "description": "AGNC Investment Corp hat am 27.10.2020 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13436406",
+      "title": "Dividende",
+      "timestamp": 1603972800000,
+      "description": "AGNC Investment Corp wird am 29.10.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13507068",
+      "title": "Dividende",
+      "timestamp": 1606478400000,
+      "description": "AGNC Investment Corp wird am 27.11.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13547509",
+      "title": "Dividende",
+      "timestamp": 1609329600000,
+      "description": "AGNC Investment Corp wird am 30.12.2020 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13010992",
+      "title": "Financials Release",
+      "timestamp": 1611608465000,
+      "description": "AGNC Investment Corp veröffentlicht am 25.01.2021 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13584856",
+      "title": "Earnings Call",
+      "timestamp": 1611667800000,
+      "description": "AGNC Investment Corp hat am 26.01.2021 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13588948",
+      "title": "Dividende",
+      "timestamp": 1611835200000,
+      "description": "AGNC Investment Corp wird am 28.01.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13632170",
+      "title": "Dividende",
+      "timestamp": 1614254400000,
+      "description": "AGNC Investment Corp wird am 25.02.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14622887",
+      "title": "Dividende",
+      "timestamp": 1617105600000,
+      "description": "AGNC Investment Corp wird am 30.03.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14624133",
+      "title": "Hauptversammlung",
+      "timestamp": 1619096400000,
+      "description": "AGNC Investment Corp hat am 22.04.2021 Hauptversammlung.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13162027",
+      "title": "Financials Release",
+      "timestamp": 1619467265000,
+      "description": "AGNC Investment Corp veröffentlicht am 26.04.2021 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14655109",
+      "title": "Earnings Call",
+      "timestamp": 1619526600000,
+      "description": "AGNC Investment Corp hat am 27.04.2021 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14656223",
+      "title": "Dividende",
+      "timestamp": 1619697600000,
+      "description": "AGNC Investment Corp wird am 29.04.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14723527",
+      "title": "Dividende",
+      "timestamp": 1622116800000,
+      "description": "AGNC Investment Corp wird am 27.05.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14867377",
+      "title": "Dividende",
+      "timestamp": 1624968000000,
+      "description": "AGNC Investment Corp wird am 29.06.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13295450",
+      "title": "Financials Release",
+      "timestamp": 1627329664000,
+      "description": "AGNC Investment Corp veröffentlicht am 26.07.2021 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14919395",
+      "title": "Earnings Call",
+      "timestamp": 1627389000000,
+      "description": "AGNC Investment Corp hat am 27.07.2021 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14920403",
+      "title": "Dividende",
+      "timestamp": 1627560000000,
+      "description": "AGNC Investment Corp wird am 29.07.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14958193",
+      "title": "Dividende",
+      "timestamp": 1630324800000,
+      "description": "AGNC Investment Corp wird am 30.08.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14986217",
+      "title": "Dividende",
+      "timestamp": 1632916800000,
+      "description": "AGNC Investment Corp wird am 29.09.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13462590",
+      "title": "Financials Release",
+      "timestamp": 1635192064000,
+      "description": "AGNC Investment Corp veröffentlicht am 25.10.2021 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15002585",
+      "title": "Earnings Call",
+      "timestamp": 1635251400000,
+      "description": "AGNC Investment Corp hat am 26.10.2021 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15003450",
+      "title": "Dividende",
+      "timestamp": 1635422400000,
+      "description": "AGNC Investment Corp wird am 28.10.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15042450",
+      "title": "Dividende",
+      "timestamp": 1638187200000,
+      "description": "AGNC Investment Corp wird am 29.11.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15071138",
+      "title": "Dividende",
+      "timestamp": 1640865600000,
+      "description": "AGNC Investment Corp wird am 30.12.2021 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15089755",
+      "title": "Dividende",
+      "timestamp": 1643371200000,
+      "description": "AGNC Investment Corp wird am 28.01.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "13604361",
+      "title": "Financials Release",
+      "timestamp": 1643662864000,
+      "description": "AGNC Investment Corp veröffentlicht am 31.01.2022 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15088872",
+      "title": "Earnings Call",
+      "timestamp": 1643722200000,
+      "description": "AGNC Investment Corp hat am 01.02.2022 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15118332",
+      "title": "Dividende",
+      "timestamp": 1645790400000,
+      "description": "AGNC Investment Corp wird am 25.02.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15149690",
+      "title": "Dividende",
+      "timestamp": 1648641600000,
+      "description": "AGNC Investment Corp wird am 30.03.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15130871",
+      "title": "Hauptversammlung",
+      "timestamp": 1650546000000,
+      "description": "AGNC Investment Corp hat am 21.04.2022 Hauptversammlung.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15177211",
+      "title": "Dividende",
+      "timestamp": 1651147200000,
+      "description": "AGNC Investment Corp wird am 28.04.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14672455",
+      "title": "Financials Release",
+      "timestamp": 1651521665000,
+      "description": "AGNC Investment Corp veröffentlicht am 02.05.2022 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15177062",
+      "title": "Earnings Call",
+      "timestamp": 1651581000000,
+      "description": "AGNC Investment Corp hat am 03.05.2022 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15217108",
+      "title": "Dividende",
+      "timestamp": 1653652800000,
+      "description": "AGNC Investment Corp wird am 27.05.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15246385",
+      "title": "Dividende",
+      "timestamp": 1656504000000,
+      "description": "AGNC Investment Corp wird am 29.06.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "14932061",
+      "title": "Financials Release",
+      "timestamp": 1658779264000,
+      "description": "AGNC Investment Corp veröffentlicht am 25.07.2022 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15261246",
+      "title": "Earnings Call",
+      "timestamp": 1658838600000,
+      "description": "AGNC Investment Corp hat am 26.07.2022 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15264307",
+      "title": "Dividende",
+      "timestamp": 1659009600000,
+      "description": "AGNC Investment Corp wird am 28.07.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15300718",
+      "title": "Dividende",
+      "timestamp": 1661860800000,
+      "description": "AGNC Investment Corp wird am 30.08.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15338722",
+      "title": "Dividende",
+      "timestamp": 1664452800000,
+      "description": "AGNC Investment Corp wird am 29.09.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15015600",
+      "title": "Financials Release",
+      "timestamp": 1666641665000,
+      "description": "AGNC Investment Corp veröffentlicht am 24.10.2022 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15351651",
+      "title": "Earnings Call",
+      "timestamp": 1666701000000,
+      "description": "AGNC Investment Corp hat am 25.10.2022 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15355387",
+      "title": "Dividende",
+      "timestamp": 1666958400000,
+      "description": "AGNC Investment Corp wird am 28.10.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15394800",
+      "title": "Dividende",
+      "timestamp": 1669723200000,
+      "description": "AGNC Investment Corp wird am 29.11.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15420503",
+      "title": "Dividende",
+      "timestamp": 1672315200000,
+      "description": "AGNC Investment Corp wird am 29.12.2022 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15438772",
+      "title": "Dividende",
+      "timestamp": 1675080000000,
+      "description": "AGNC Investment Corp wird am 30.01.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15105768",
+      "title": "Financials Release",
+      "timestamp": 1675112464000,
+      "description": "AGNC Investment Corp veröffentlicht am 30.01.2023 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15437469",
+      "title": "Earnings Call",
+      "timestamp": 1675171800000,
+      "description": "AGNC Investment Corp hat am 31.01.2023 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15466291",
+      "title": "Dividende",
+      "timestamp": 1677499200000,
+      "description": "AGNC Investment Corp wird am 27.02.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15511308",
+      "title": "Dividende",
+      "timestamp": 1680177600000,
+      "description": "AGNC Investment Corp wird am 30.03.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15491840",
+      "title": "Hauptversammlung",
+      "timestamp": 1681995600000,
+      "description": "AGNC Investment Corp hat am 20.04.2023 Hauptversammlung.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15200917",
+      "title": "Financials Release",
+      "timestamp": 1682366465000,
+      "description": "AGNC Investment Corp veröffentlicht am 24.04.2023 Geschäftszahlen.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15542855",
+      "title": "Earnings Call",
+      "timestamp": 1682425800000,
+      "description": "AGNC Investment Corp hat am 25.04.2023 den nächsten Earnings Call.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15547178",
+      "title": "Dividende",
+      "timestamp": 1682596800000,
+      "description": "AGNC Investment Corp wird am 27.04.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15587591",
+      "title": "Dividende",
+      "timestamp": 1685448000000,
+      "description": "AGNC Investment Corp wird am 30.05.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    },
+    {
+      "id": "15635828",
+      "title": "Dividende",
+      "timestamp": 1688040000000,
+      "description": "AGNC Investment Corp wird am 29.06.2023 ex-Dividende gehandelt.",
+      "webcastUrl": null
+    }
+  ],
+  "analystRating": {
+    "targetPrice": {
+      "average": 9.255145864060417,
+      "high": 9.995557529986673,
+      "low": 8.440693025322078
+    },
+    "recommendations": {
+      "buy": 1,
+      "outperform": 4,
+      "hold": 7,
+      "underperform": 0,
+      "sell": 0
+    }
+  },
+  "hasKpis": true,
+  "aggregatedDividends": [
+    {
+      "periodStartDate": "2023-01-01",
+      "projected": true,
+      "yieldValue": 0.142476,
+      "amount": 1.28228,
+      "count": 8,
+      "projectedCount": 12,
+      "price": 9
+    },
+    {
+      "periodStartDate": "2022-01-01",
+      "projected": false,
+      "yieldValue": 0.141617,
+      "amount": 1.367586,
+      "count": 12,
+      "projectedCount": null,
+      "price": 9.657
+    },
+    {
+      "periodStartDate": "2021-01-01",
+      "projected": false,
+      "yieldValue": 0.08984,
+      "amount": 1.215079,
+      "count": 12,
+      "projectedCount": null,
+      "price": 13.525
+    },
+    {
+      "periodStartDate": "2020-01-01",
+      "projected": false,
+      "yieldValue": 0.11147,
+      "amount": 1.407862,
+      "count": 12,
+      "projectedCount": null,
+      "price": 12.63
+    },
+    {
+      "periodStartDate": "2019-01-01",
+      "projected": false,
+      "yieldValue": 0.112569,
+      "amount": 1.804468,
+      "count": 12,
+      "projectedCount": null,
+      "price": 16.03
+    }
+  ]
+}

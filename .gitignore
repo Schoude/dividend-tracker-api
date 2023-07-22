@@ -1,0 +1,3 @@
+*.db
+stocks.json
+.env

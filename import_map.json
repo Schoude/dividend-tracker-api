@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "cheerio": "https://deno.land/x/cheerio@1.0.7/mod.ts",
+    "puppeteer": "https://deno.land/x/puppeteer@16.2.0/mod.ts",
+    "sqlite": "https://deno.land/x/sqlite@v3.7.2/mod.ts",
+    "std/": "https://deno.land/std@0.195.0/"
+  }
+}

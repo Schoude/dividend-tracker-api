@@ -1,0 +1,23 @@
+{
+  "tasks": {
+    // dividenhistory.com
+    "scrape:fresh": "deno run -A --unstable ./scraping/dividendhistory/scrape.ts",
+    "scrape:update": "deno run -A --unstable ./scraping/dividendhistory/scrape-update.ts",
+    // Trade Republic
+    "tr:auth": "deno run -A --unstable ./scraping/tr/auth.ts --cli",
+    "scrape:portfolio": "deno run -A --unstable ./scraping/tr/scrapes/scrape-portfolio.ts",
+    "scrape:instruments": "deno run -A --unstable ./scraping/tr/scrapes/scrape-instruments.ts",
+    "scrape:watchlist": "deno run -A --unstable ./scraping/tr/scrapes/scrape-watchlist.ts",
+    "scrape:etf-details": "deno run -A --unstable ./scraping/tr/scrapes/scrape-etf-details.ts",
+    "scrape:stock-details": "deno run -A --unstable ./scraping/tr/scrapes/scrape-stock-details.ts",
+    // DB setup
+    "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
+    "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",
+    "start": "deno run -A --unstable app.ts"
+  },
+  "fmt": {
+    "singleQuote": true,
+    "indentWidth": 2
+  },
+  "importMap": "./import_map.json"
+}

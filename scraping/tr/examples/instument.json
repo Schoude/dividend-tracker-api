@@ -1,0 +1,256 @@
+{
+  "active": true,
+  "exchangeIds": [
+    "LSX",
+    "TDG"
+  ],
+  "exchanges": [
+    {
+      "slug": "LSX",
+      "active": true,
+      "nameAtExchange": "ARBOR RLTY TR.INC. DL-,01",
+      "symbolAtExchange": "OWQ",
+      "firstSeen": 1548043537097,
+      "lastSeen": 1689735925179,
+      "firstTradingDay": null,
+      "lastTradingDay": null,
+      "tradingTimes": null,
+      "fractionalTrading": {
+        "minOrderSize": "0.0000010",
+        "maxOrderSize": null,
+        "stepSize": "0.0000010",
+        "minOrderAmount": "1"
+      },
+      "settlementRoute": "DEFAULT",
+      "weight": null
+    },
+    {
+      "slug": "TDG",
+      "active": true,
+      "nameAtExchange": "Arbor Realty Trust Inc.",
+      "symbolAtExchange": "OWQ",
+      "firstSeen": 1585287001108,
+      "lastSeen": 1689744624952,
+      "firstTradingDay": null,
+      "lastTradingDay": null,
+      "tradingTimes": null,
+      "fractionalTrading": null,
+      "settlementRoute": "DEFAULT",
+      "weight": null
+    }
+  ],
+  "jurisdictions": {
+    "DE": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "AT": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "FR": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "SI": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "NL": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "IE": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "LT": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "ES": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "BE": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": false,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": false
+    },
+    "EE": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "LV": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "SK": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "PT": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "LU": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "FI": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "IT": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    },
+    "GR": {
+      "active": true,
+      "kidLink": null,
+      "kidRequired": false,
+      "savable": true,
+      "fractionalTradingAllowed": true,
+      "proprietaryTradable": true
+    }
+  },
+  "dividends": [],
+  "splits": [],
+  "cfi": "ESXXXX",
+  "name": "ARBOR RLTY TR.INC. DL-,01",
+  "typeId": "stock",
+  "wkn": "A0CAPU",
+  "legacyTypeChar": "S",
+  "isin": "US0389231087",
+  "priceFactor": 1,
+  "shortName": "Arbor Realty Trust",
+  "nextGenName": "Arbor Realty Trust",
+  "alarmsName": "Arbor Realty Trust",
+  "homeSymbol": "OWQ",
+  "intlSymbol": "ABR",
+  "homeNsin": "000000000",
+  "tags": [
+    {
+      "type": "sector",
+      "id": "banking",
+      "name": "Banken & Finanzen",
+      "icon": "https://assets.traderepublic.com/v2/img/icon/SectorBanking.png"
+    },
+    {
+      "type": "sector",
+      "id": "realestate",
+      "name": "Immobilien",
+      "icon": "https://assets.traderepublic.com/v2/img/icon/SectorRealEstate.png"
+    },
+    {
+      "type": "country",
+      "id": "US",
+      "name": "USA",
+      "icon": "https://assets.traderepublic.com/v2/img/icon/flags_square/us.png"
+    }
+  ],
+  "derivativeProductCount": {},
+  "derivativeProductCategories": [],
+  "company": {
+    "name": "Arbor Realty Trust",
+    "description": null,
+    "ipoDate": 1081987200000,
+    "countryOfOrigin": "US"
+  },
+  "marketCap": {
+    "value": null,
+    "currencyId": null
+  },
+  "lastDividend": null,
+  "shareType": "common",
+  "custodyType": "gsv",
+  "kidRequired": false,
+  "kidLink": null,
+  "tradable": true,
+  "fundInfo": null,
+  "derivativeInfo": null,
+  "bondInfo": null,
+  "targetMarket": {
+    "investorExperience": "basicKnowledge",
+    "investorType": "retail"
+  },
+  "savable": true,
+  "fractionalTradingAllowed": true,
+  "proprietaryTradable": true,
+  "issuer": null,
+  "issuerDisplayName": null,
+  "issuerImageId": null,
+  "notionalCurrency": "USD",
+  "additionalBuyWarning": null,
+  "warningMessage": null,
+  "description": null,
+  "noTradeVolume": false,
+  "additionalBuyWarnings": null,
+  "warningMessages": null,
+  "descriptions": null,
+  "usesWeightsForExchanges": false,
+  "imageId": "logos/US0389231087/v2"
+}
