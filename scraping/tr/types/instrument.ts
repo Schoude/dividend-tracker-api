@@ -27,7 +27,7 @@ export interface Instrument {
   nextGenName: string;
   alarmsName: string;
   homeSymbol: string;
-  intlSymbol: null;
+  intlSymbol: string;
   homeNsin: string;
   tags: Tag[];
   derivativeProductCount: DerivativeProductCount;
@@ -40,7 +40,7 @@ export interface Instrument {
   kidRequired: boolean;
   kidLink: null;
   tradable: boolean;
-  fundInfo: null;
+  fundInfo?: FundInfo;
   derivativeInfo: null;
   bondInfo: null;
   targetMarket: TargetMarket;
@@ -281,4 +281,8 @@ interface MarketCap {
 interface TargetMarket {
   investorExperience: string;
   investorType: string;
+}
+
+interface FundInfo {
+  useOfProfits: 'distributing' | 'accumulating';
 }

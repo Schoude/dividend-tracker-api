@@ -10,6 +10,7 @@
     "scrape:watchlist": "deno run -A --unstable ./scraping/tr/scrapes/scrape-watchlist.ts",
     "scrape:etf-details": "deno run -A --unstable ./scraping/tr/scrapes/scrape-etf-details.ts",
     "scrape:stock-details": "deno run -A --unstable ./scraping/tr/scrapes/scrape-stock-details.ts",
+    "scrape:price-snapshots": "deno run -A --unstable ./scraping/tr/scrapes/scrape-price-snapshots.ts",
     // DB setup
     "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
     "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",

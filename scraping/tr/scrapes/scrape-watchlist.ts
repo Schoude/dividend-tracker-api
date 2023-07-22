@@ -97,6 +97,20 @@ async function scrapeWatchlist() {
       return;
     }
 
+    // Check if the instruments pays dividends.
+    // A) Non distributive ETF
+    if (
+      instrument.fundInfo?.useOfProfits === 'accumulating'
+    ) {
+      console.log(
+        bgRed(
+          `Instrument pays no dividends: ${instrument.shortName}: type: ${instrument.typeId}`,
+        ),
+      );
+
+      return;
+    }
+
     const instrumentSaveable: InstrumentSaveable = {
       intlSymbol: instrument.intlSymbol,
       isin: instrument.isin,
