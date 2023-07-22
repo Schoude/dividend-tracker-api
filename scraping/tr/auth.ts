@@ -2,14 +2,19 @@ import { parse } from 'std/flags/mod.ts';
 import { bgYellow, green } from 'std/fmt/colors.ts';
 import { TR_API_URL, TR_SESSION_KEY } from './constants.ts';
 import { kv } from './kv/index.ts';
+import { load } from 'std/dotenv/mod.ts';
+
+const env = await load();
+const phoneNumber = env['PHONE'];
+const pin = env['PIN'];
 
 const flags = parse(Deno.args, {
   boolean: ['cli'],
 });
 
 const credentials = {
-  phoneNumber: '',
-  pin: '',
+  phoneNumber,
+  pin,
 };
 
 export async function authorize(reAuthorizedCallback?: () => void) {
