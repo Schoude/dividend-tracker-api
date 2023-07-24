@@ -1,6 +1,7 @@
 import { supabase } from '../../../../src/supabase/client.ts';
 import { etfDetails } from '../../output/etf-details.ts';
 import { instruments } from '../../output/instruments.ts';
+import { instrumentsWatchlist } from '../../output/watchlist-instruments.ts';
 
 const allSectorsInstruments = instruments.flatMap((instrument) => {
   return instrument.tags
@@ -11,6 +12,18 @@ const allSectorsInstruments = instruments.flatMap((instrument) => {
       icon: sector.icon,
     }));
 });
+
+const allSectorsInstrumentsWatchlist = instrumentsWatchlist.flatMap(
+  (instrument) => {
+    return instrument.tags
+      .filter((tag) => tag.type === 'sector')
+      .map((sector) => ({
+        sector_id: sector.id,
+        name: sector.name,
+        icon: sector.icon,
+      }));
+  },
+);
 
 const allSectorsETFs = etfDetails.flatMap((etf) => {
   return etf.composition?.flatMap((c) => {
@@ -26,6 +39,7 @@ const allSectorsETFs = etfDetails.flatMap((etf) => {
 
 const allSectors = [
   ...allSectorsInstruments,
+  ...allSectorsInstrumentsWatchlist,
   ...allSectorsETFs,
 ];
 
@@ -35,6 +49,8 @@ const aggregatedSectors = new Map(
 
 export const unitSectors = [...aggregatedSectors.values()];
 
-const { data } = await supabase.from('sectors').insert(unitSectors).select();
+const { data, error } = await supabase.from('sectors').insert(unitSectors)
+  .select();
 
-console.log(data);
+console.log({ error });
+console.log({ data });
