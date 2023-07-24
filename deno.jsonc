@@ -13,10 +13,12 @@
     "scrape:price-snapshots": "deno run -A --unstable ./scraping/tr/scrapes/scrape-price-snapshots.ts --cli",
     "scrape:timeline": "deno run -A --unstable ./scraping/tr/scrapes/scrape-timeline.ts --cli",
     "scrape:all": "deno run -A --unstable ./scraping/tr/scrapes/scrape-all.ts",
+    // Data helpers
+    "data:insert-sectors": "deno run -A --unstable ./scraping/tr/data-helpers/insert/sectors.ts",
     // DB setup
-    "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
-    "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",
-    "start": "deno run -A --unstable app.ts"
+    // "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
+    // "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",
+    // "start": "deno run -A --unstable app.ts"
   },
   "fmt": {
     "singleQuote": true,
