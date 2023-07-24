@@ -1,4 +1,4 @@
-import { dividendRowColumnNames } from '../scraping/dividendhistory/scrape.ts';
+import { dividendRowColumnNames } from './scrape.ts';
 
 export type GetArrayElementType<T extends readonly unknown[]> = T extends
   readonly (infer U)[] ? U : never;

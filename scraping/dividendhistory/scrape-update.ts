@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 import { cheerio } from 'cheerio';
-import { Dividend } from '../../src/types.ts';
+import { Dividend } from './types.ts';
 import { Stock } from '../../src/db/models/Stock.ts';
 import { Dividend as DividendORM } from '../../src/db/models/Dividend.ts';
 

@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import { cheerio } from 'cheerio';
-import { extractSymbolName } from '../../src/utils.ts';
-import { Dividend, Stock } from '../../src/types.ts';
+import { extractSymbolName } from './utils.ts';
+import { Dividend, Stock } from './types.ts';
 
 // 12 stocks
 const stocksToScrape = [
