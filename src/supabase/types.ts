@@ -197,6 +197,7 @@ export interface Database {
       };
       stocks: {
         Row: {
+          analyst_rating_id: number | null;
           company_info_id: number | null;
           company_name: string | null;
           created_at: string | null;
@@ -210,6 +211,7 @@ export interface Database {
           updated_at: string | null;
         };
         Insert: {
+          analyst_rating_id?: number | null;
           company_info_id?: number | null;
           company_name?: string | null;
           created_at?: string | null;
@@ -223,6 +225,7 @@ export interface Database {
           updated_at?: string | null;
         };
         Update: {
+          analyst_rating_id?: number | null;
           company_info_id?: number | null;
           company_name?: string | null;
           created_at?: string | null;
@@ -236,6 +239,12 @@ export interface Database {
           updated_at?: string | null;
         };
         Relationships: [
+          {
+            foreignKeyName: 'stocks_analyst_rating_id_fkey';
+            columns: ['analyst_rating_id'];
+            referencedRelation: 'analyst_ratings';
+            referencedColumns: ['id'];
+          },
           {
             foreignKeyName: 'stocks_company_info_id_fkey';
             columns: ['company_info_id'];
