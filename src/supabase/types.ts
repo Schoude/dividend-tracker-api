@@ -6,7 +6,6 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[];
 
-
 export interface Database {
   public: {
     Tables: {
@@ -48,6 +47,39 @@ export interface Database {
           target_price_average?: number | null;
           target_price_high?: number | null;
           target_price_low?: number | null;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      company_events: {
+        Row: {
+          created_at: string;
+          description: string | null;
+          event_id: string | null;
+          id: number;
+          isin: string | null;
+          timestamp: number | null;
+          title: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          description?: string | null;
+          event_id?: string | null;
+          id?: number;
+          isin?: string | null;
+          timestamp?: number | null;
+          title?: string | null;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          description?: string | null;
+          event_id?: string | null;
+          id?: number;
+          isin?: string | null;
+          timestamp?: number | null;
+          title?: string | null;
           updated_at?: string;
         };
         Relationships: [];
