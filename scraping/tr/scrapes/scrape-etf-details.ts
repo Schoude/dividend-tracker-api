@@ -97,9 +97,7 @@ export async function scrapeETFDetails() {
   trSocket.onclose = () => {
     const fileContent = `
     import type { ETFDetail } from '../types/etf-detail.ts';
-    export const etfDetails: ETFDetail[] = ${
-      JSON.stringify(etfDetails)
-    }`;
+    export const etfDetails: ETFDetail[] = ${JSON.stringify(etfDetails)}`;
 
     Deno.writeTextFileSync(
       `${TR_OUTPUT_FOLDER_PATH}/etf-details.ts`,
