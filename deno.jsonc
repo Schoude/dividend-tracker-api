@@ -16,7 +16,8 @@
     // Data helpers
     "data:sectors-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/sectors.ts",
     "data:company-events-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-events.ts",
-    "data:analyst-ratings-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/analyst-ratings.ts"
+    "data:analyst-ratings-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/analyst-ratings.ts",
+    "data:company-infos-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-infos.ts"
     // DB setup
     // "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
     // "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",

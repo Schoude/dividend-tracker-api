@@ -84,6 +84,69 @@ export interface Database {
         };
         Relationships: [];
       };
+      company_infos: {
+        Row: {
+          beta: number | null;
+          ceoname: string | null;
+          cfoname: string | null;
+          cooname: string | null;
+          countrycode: string | null;
+          created_at: string;
+          description: string | null;
+          dividendyieldsnapshot: number | null;
+          employeecount: number | null;
+          eps: number | null;
+          id: number;
+          isin: string | null;
+          marketcapsnapshot: number | null;
+          name: string | null;
+          pbratiosnapshot: number | null;
+          peratiosnapshot: number | null;
+          updated_at: string;
+          yearfounded: number | null;
+        };
+        Insert: {
+          beta?: number | null;
+          ceoname?: string | null;
+          cfoname?: string | null;
+          cooname?: string | null;
+          countrycode?: string | null;
+          created_at?: string;
+          description?: string | null;
+          dividendyieldsnapshot?: number | null;
+          employeecount?: number | null;
+          eps?: number | null;
+          id?: never;
+          isin?: string | null;
+          marketcapsnapshot?: number | null;
+          name?: string | null;
+          pbratiosnapshot?: number | null;
+          peratiosnapshot?: number | null;
+          updated_at?: string;
+          yearfounded?: number | null;
+        };
+        Update: {
+          beta?: number | null;
+          ceoname?: string | null;
+          cfoname?: string | null;
+          cooname?: string | null;
+          countrycode?: string | null;
+          created_at?: string;
+          description?: string | null;
+          dividendyieldsnapshot?: number | null;
+          employeecount?: number | null;
+          eps?: number | null;
+          id?: never;
+          isin?: string | null;
+          marketcapsnapshot?: number | null;
+          name?: string | null;
+          pbratiosnapshot?: number | null;
+          peratiosnapshot?: number | null;
+          updated_at?: string;
+          yearfounded?: number | null;
+        };
+        Relationships: [];
+      };
       portfolios: {
         Row: {
           created_at: string;
