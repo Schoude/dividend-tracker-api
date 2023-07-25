@@ -195,6 +195,55 @@ export interface Database {
         };
         Relationships: [];
       };
+      stocks: {
+        Row: {
+          company_info_id: number | null;
+          company_name: string | null;
+          created_at: string | null;
+          exchange_id: string | null;
+          id: number;
+          image_id: string | null;
+          intl_symbol: string | null;
+          ipo_date: number | null;
+          isin: string | null;
+          type_id: string | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          company_info_id?: number | null;
+          company_name?: string | null;
+          created_at?: string | null;
+          exchange_id?: string | null;
+          id?: never;
+          image_id?: string | null;
+          intl_symbol?: string | null;
+          ipo_date?: number | null;
+          isin?: string | null;
+          type_id?: string | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          company_info_id?: number | null;
+          company_name?: string | null;
+          created_at?: string | null;
+          exchange_id?: string | null;
+          id?: never;
+          image_id?: string | null;
+          intl_symbol?: string | null;
+          ipo_date?: number | null;
+          isin?: string | null;
+          type_id?: string | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'stocks_company_info_id_fkey';
+            columns: ['company_info_id'];
+            referencedRelation: 'company_infos';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
     };
     Views: {
       [_ in never]: never;
