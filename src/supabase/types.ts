@@ -195,34 +195,6 @@ export interface Database {
         };
         Relationships: [];
       };
-      stock_sectors: {
-        Row: {
-          sector_id: number;
-          stock_id: number;
-        };
-        Insert: {
-          sector_id: number;
-          stock_id: number;
-        };
-        Update: {
-          sector_id?: number;
-          stock_id?: number;
-        };
-        Relationships: [
-          {
-            foreignKeyName: 'stock_sectors_sector_id_fkey';
-            columns: ['sector_id'];
-            referencedRelation: 'sectors';
-            referencedColumns: ['id'];
-          },
-          {
-            foreignKeyName: 'stock_sectors_stock_id_fkey';
-            columns: ['stock_id'];
-            referencedRelation: 'stocks';
-            referencedColumns: ['id'];
-          },
-        ];
-      };
       stocks: {
         Row: {
           analyst_rating_id: number | null;
@@ -280,6 +252,34 @@ export interface Database {
             foreignKeyName: 'stocks_company_info_id_fkey';
             columns: ['company_info_id'];
             referencedRelation: 'company_infos';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
+      stocks_sectors: {
+        Row: {
+          sector_id: number;
+          stock_id: number;
+        };
+        Insert: {
+          sector_id: number;
+          stock_id: number;
+        };
+        Update: {
+          sector_id?: number;
+          stock_id?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'stocks_sectors_sector_id_fkey';
+            columns: ['sector_id'];
+            referencedRelation: 'sectors';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'stocks_sectors_stock_id_fkey';
+            columns: ['stock_id'];
+            referencedRelation: 'stocks';
             referencedColumns: ['id'];
           },
         ];
