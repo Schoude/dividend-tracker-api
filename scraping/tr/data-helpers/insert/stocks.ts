@@ -66,25 +66,53 @@ const stocksComplete = await Promise.all([
   ...stocksInstrumentsWatchlist,
 ]);
 
-const { data, error } = await supabase.from('stocks').insert(
+// Fill the stocks table
+const { data: insertedStocks, error: stockInsertError } = await supabase.from(
+  'stocks',
+).insert(
   stocksComplete,
 )
   .select();
+
+console.log({ insertedStocks });
+if (stockInsertError) {
+  console.log({ stockInsertError });
+}
+
+// Add values to the stocks_sectors table
+await Promise.all([
+  ...instruments.filter((instrument) => instrument.typeId === 'stock'),
+  ...instrumentsWatchlist,
+].map(async (stock) => {
+  const stockId = insertedStocks?.find((dbStock) => dbStock.isin === stock.isin)
+    ?.id!;
+  const sectorsOfStock = stock.tags.filter((tag) => tag.type === 'sector')
+    .map((sector) => sector.id);
+
+  const dbSectorResult = await supabase.from('sectors').select('id')
+    .in('sector_id', sectorsOfStock);
+
+  const insertValues = dbSectorResult.data?.map((sector) => ({
+    sector_id: sector.id,
+    stock_id: stockId,
+  }))!;
+
+  return await supabase.from('stocks_sectors').insert(insertValues);
+}));
+
+// Get the stock with the company_infos, analyst_ratings and sectors
+const { data, error } = await supabase.from('stocks')
+  .select(`
+    company_name,
+    company_infos (description),
+    analyst_ratings (recommendations_buy),
+    sectors (
+      name
+    )
+  `)
+  .eq('company_name', 'BASF');
 
 console.log({ data });
 console.log({ error });
 
 // TODO: one-to-many relation stocks<-events
-// TODO: many-to-many relation stocks<->sectors
-
-// Get the stock with the company_infos and analyst_ratings
-// const { data, error } = await supabase.from('stocks')
-//   .select(`
-//     company_name,
-//     company_infos (description),
-//     analyst_ratings (recommendations_buy)
-//   `)
-//   .eq('company_name', 'BASF');
-
-// console.log({ data });
-// console.log({ error });
