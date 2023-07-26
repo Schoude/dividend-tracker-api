@@ -207,6 +207,7 @@ export interface Database {
           intl_symbol: string | null;
           ipo_date: number | null;
           isin: string | null;
+          price_snapshot: number | null;
           type_id: string | null;
           updated_at: string | null;
         };
@@ -221,6 +222,7 @@ export interface Database {
           intl_symbol?: string | null;
           ipo_date?: number | null;
           isin?: string | null;
+          price_snapshot?: number | null;
           type_id?: string | null;
           updated_at?: string | null;
         };
@@ -235,6 +237,7 @@ export interface Database {
           intl_symbol?: string | null;
           ipo_date?: number | null;
           isin?: string | null;
+          price_snapshot?: number | null;
           type_id?: string | null;
           updated_at?: string | null;
         };

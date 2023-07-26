@@ -1,5 +1,6 @@
 import { supabase } from '../../../../src/supabase/client.ts';
 import { instruments } from '../../output/instruments.ts';
+import { priceSnapshots } from '../../output/price-snapshots.ts';
 import { instrumentsWatchlist } from '../../output/watchlist-instruments.ts';
 
 const stocksInstruments = instruments.filter((instrument) =>
@@ -15,6 +16,8 @@ const stocksInstruments = instruments.filter((instrument) =>
     .eq('isin', stock.isin)
     .single();
 
+  const price = priceSnapshots.find((snapshot) => snapshot.isin === stock.isin);
+
   return {
     company_info_id: companyInfo?.id,
     analyst_rating_id: analystRating?.id,
@@ -25,6 +28,7 @@ const stocksInstruments = instruments.filter((instrument) =>
     ipo_date: stock.company.ipoDate,
     isin: stock.isin,
     type_id: stock.typeId,
+    price_snapshot: Number(price?.price.toFixed(2)),
   };
 });
 
@@ -41,6 +45,8 @@ const stocksInstrumentsWatchlist = instrumentsWatchlist.filter((instrument) =>
     .eq('isin', stock.isin)
     .single();
 
+  const price = priceSnapshots.find((snapshot) => snapshot.isin === stock.isin);
+
   return {
     company_info_id: companyInfo?.id,
     analyst_rating_id: analystRating?.id,
@@ -51,6 +57,7 @@ const stocksInstrumentsWatchlist = instrumentsWatchlist.filter((instrument) =>
     ipo_date: stock.company.ipoDate,
     isin: stock.isin,
     type_id: stock.typeId,
+    price_snapshot: Number(price?.price.toFixed(2)),
   };
 });
 
@@ -66,6 +73,9 @@ const { data, error } = await supabase.from('stocks').insert(
 
 console.log({ data });
 console.log({ error });
+
+// TODO: one-to-many relation stocks<-events
+// TODO: many-to-many relation stocks<->sectors
 
 // Get the stock with the company_infos and analyst_ratings
 // const { data, error } = await supabase.from('stocks')
