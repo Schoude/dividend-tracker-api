@@ -58,6 +58,7 @@ export interface Database {
           event_id: string | null;
           id: number;
           isin: string | null;
+          stock_id: number | null;
           timestamp: number | null;
           title: string | null;
           updated_at: string;
@@ -68,6 +69,7 @@ export interface Database {
           event_id?: string | null;
           id?: number;
           isin?: string | null;
+          stock_id?: number | null;
           timestamp?: number | null;
           title?: string | null;
           updated_at?: string;
@@ -78,11 +80,19 @@ export interface Database {
           event_id?: string | null;
           id?: number;
           isin?: string | null;
+          stock_id?: number | null;
           timestamp?: number | null;
           title?: string | null;
           updated_at?: string;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: 'company_events_stock_id_fkey';
+            columns: ['stock_id'];
+            referencedRelation: 'stocks';
+            referencedColumns: ['id'];
+          },
+        ];
       };
       company_infos: {
         Row: {

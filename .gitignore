@@ -1,4 +1,5 @@
 scraping/tr/output
+src/supabase/query-tests
 
 *.db
 stocks.json
