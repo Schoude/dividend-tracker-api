@@ -1,7 +1,7 @@
 export interface TimelineOrderDetail {
   id: string;
   type: 'buy' | 'sell';
-  amount: number;
+  amountChanged: number;
   name: string;
   price: number;
 }

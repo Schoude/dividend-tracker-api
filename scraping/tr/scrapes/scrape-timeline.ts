@@ -84,7 +84,7 @@ export async function scrapeTimeline() {
         timeLineDetails.push({
           id: timelineDetail.id,
           type: 'buy',
-          amount: amountRegular!,
+          amountChanged: amountRegular!,
           name: timelineDetail.titleText.replace('Kauf ', ''),
           price: priceRegular!,
         });
@@ -109,7 +109,7 @@ export async function scrapeTimeline() {
         timeLineDetails.push({
           id: timelineDetail.id,
           type: 'buy',
-          amount: amountSavingsPlan,
+          amountChanged: amountSavingsPlan,
           name: timelineDetail.titleText,
           price: priceSavingsPlan!,
         });
