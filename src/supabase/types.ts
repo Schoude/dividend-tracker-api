@@ -367,6 +367,33 @@ export interface Database {
           },
         ];
       };
+      users: {
+        Row: {
+          created_at: string;
+          email: string | null;
+          id: number;
+          name: string | null;
+          password: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          email?: string | null;
+          id?: never;
+          name?: string | null;
+          password?: string | null;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          email?: string | null;
+          id?: never;
+          name?: string | null;
+          password?: string | null;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;
