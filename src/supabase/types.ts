@@ -236,20 +236,30 @@ export interface Database {
           id: number;
           name: string | null;
           updated_at: string;
+          user_id: number | null;
         };
         Insert: {
           created_at?: string;
           id?: number;
           name?: string | null;
           updated_at?: string;
+          user_id?: number | null;
         };
         Update: {
           created_at?: string;
           id?: number;
           name?: string | null;
           updated_at?: string;
+          user_id?: number | null;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: 'portfolios_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'users';
+            referencedColumns: ['id'];
+          },
+        ];
       };
       sectors: {
         Row: {
