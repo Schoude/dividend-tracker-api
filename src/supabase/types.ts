@@ -157,6 +157,51 @@ export interface Database {
         };
         Relationships: [];
       };
+      funds: {
+        Row: {
+          created_at: string | null;
+          description: string | null;
+          distribution_frequency: string | null;
+          exchange_id: string | null;
+          focus: string | null;
+          fund_name: string | null;
+          id: number;
+          image_id: string | null;
+          isin: string | null;
+          price_snapshot: number | null;
+          type_id: string | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          created_at?: string | null;
+          description?: string | null;
+          distribution_frequency?: string | null;
+          exchange_id?: string | null;
+          focus?: string | null;
+          fund_name?: string | null;
+          id?: never;
+          image_id?: string | null;
+          isin?: string | null;
+          price_snapshot?: number | null;
+          type_id?: string | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          created_at?: string | null;
+          description?: string | null;
+          distribution_frequency?: string | null;
+          exchange_id?: string | null;
+          focus?: string | null;
+          fund_name?: string | null;
+          id?: never;
+          image_id?: string | null;
+          isin?: string | null;
+          price_snapshot?: number | null;
+          type_id?: string | null;
+          updated_at?: string | null;
+        };
+        Relationships: [];
+      };
       portfolios: {
         Row: {
           created_at: string;

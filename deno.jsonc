@@ -18,7 +18,8 @@
     "data:company-events-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-events.ts",
     "data:analyst-ratings-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/analyst-ratings.ts",
     "data:company-infos-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-infos.ts",
-    "data:stocks-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/stocks.ts"
+    "data:stocks-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/stocks.ts",
+    "data:funds-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/funds.ts"
     // DB setup
     // "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
     // "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",
