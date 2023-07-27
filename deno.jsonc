@@ -23,11 +23,11 @@
     "data:funds-sectors-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/funds-sectors.ts",
     // Supabase Query Tests
     "query-test:stocks": "deno run -A --unstable ./src/supabase/query-tests/stocks.ts",
-    "query-test:funds": "deno run -A --unstable ./src/supabase/query-tests/funds.ts"
+    "query-test:funds": "deno run -A --unstable ./src/supabase/query-tests/funds.ts",
     // DB setup
     // "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
     // "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",
-    // "start": "deno run -A --unstable app.ts"
+    "start": "deno run -A --unstable app.ts"
   },
   "fmt": {
     "singleQuote": true,
