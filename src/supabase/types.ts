@@ -202,6 +202,34 @@ export interface Database {
         };
         Relationships: [];
       };
+      funds_sectors: {
+        Row: {
+          fund_id: number;
+          sector_id: number;
+        };
+        Insert: {
+          fund_id: number;
+          sector_id: number;
+        };
+        Update: {
+          fund_id?: number;
+          sector_id?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'funds_sectors_fund_id_fkey';
+            columns: ['fund_id'];
+            referencedRelation: 'funds';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'funds_sectors_sector_id_fkey';
+            columns: ['sector_id'];
+            referencedRelation: 'sectors';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
       portfolios: {
         Row: {
           created_at: string;
