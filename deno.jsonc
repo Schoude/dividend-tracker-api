@@ -20,7 +20,10 @@
     "data:company-infos-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-infos.ts",
     "data:stocks-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/stocks.ts",
     "data:funds-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/funds.ts",
-    "data:funds-sectors-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/funds-sectors.ts"
+    "data:funds-sectors-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/funds-sectors.ts",
+    // Supabase Query Tests
+    "query-test:stocks": "deno run -A --unstable ./src/supabase/query-tests/stocks.ts",
+    "query-test:funds": "deno run -A --unstable ./src/supabase/query-tests/funds.ts"
     // DB setup
     // "db:migrate": "deno run -A --unstable ./src/db/migrations/index.ts",
     // "db:seed": "deno run -A --unstable ./src/db/seeders/index.ts",
