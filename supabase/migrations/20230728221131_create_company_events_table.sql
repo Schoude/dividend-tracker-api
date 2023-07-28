@@ -6,7 +6,7 @@ create table
     title text,
     description text,
     timestamp bigint,
-    stock_id integer references stocks,
+    stock_id bigint references stocks,
     created_at timestamp with time zone default timezone('utc'::text, now()) not null,
     updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );

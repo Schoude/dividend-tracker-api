@@ -10,8 +10,8 @@ create table
     exchange_id text,
     image_id text,
     distribution_frequency text,
-    company_info_id int8 not null references company_infos,
-    analyst_rating_id int8 not null references analyst_ratings,
+    company_info_id bigint references company_infos,
+    analyst_rating_id bigint references analyst_ratings,
     created_at timestamp with time zone default now(),
     updated_at timestamp with time zone default now()
   );
