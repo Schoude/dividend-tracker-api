@@ -157,6 +157,58 @@ export interface Database {
         };
         Relationships: [];
       };
+      dividends_fund: {
+        Row: {
+          amount: number | null;
+          created_at: string | null;
+          ex_date_iso: string | null;
+          ex_date_unix: number | null;
+          fund_id: number;
+          id: number;
+          isin: string | null;
+          payment_date_iso: string | null;
+          payment_date_unix: number | null;
+          record_date_iso: string | null;
+          record_date_unix: number | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          amount?: number | null;
+          created_at?: string | null;
+          ex_date_iso?: string | null;
+          ex_date_unix?: number | null;
+          fund_id: number;
+          id?: never;
+          isin?: string | null;
+          payment_date_iso?: string | null;
+          payment_date_unix?: number | null;
+          record_date_iso?: string | null;
+          record_date_unix?: number | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          amount?: number | null;
+          created_at?: string | null;
+          ex_date_iso?: string | null;
+          ex_date_unix?: number | null;
+          fund_id?: number;
+          id?: never;
+          isin?: string | null;
+          payment_date_iso?: string | null;
+          payment_date_unix?: number | null;
+          record_date_iso?: string | null;
+          record_date_unix?: number | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'dividends_fund_fund_id_fkey';
+            columns: ['fund_id'];
+            referencedRelation: 'funds';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
       funds: {
         Row: {
           created_at: string | null;
