@@ -209,6 +209,55 @@ export interface Database {
           },
         ];
       };
+      dividends_stock: {
+        Row: {
+          amount: number | null;
+          created_at: string | null;
+          ex_date_iso: string | null;
+          ex_date_unix: number | null;
+          id: number;
+          info: string | null;
+          isin: string | null;
+          payment_date_iso: string | null;
+          payment_date_unix: number | null;
+          stock_id: number | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          amount?: number | null;
+          created_at?: string | null;
+          ex_date_iso?: string | null;
+          ex_date_unix?: number | null;
+          id?: number;
+          info?: string | null;
+          isin?: string | null;
+          payment_date_iso?: string | null;
+          payment_date_unix?: number | null;
+          stock_id?: number | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          amount?: number | null;
+          created_at?: string | null;
+          ex_date_iso?: string | null;
+          ex_date_unix?: number | null;
+          id?: number;
+          info?: string | null;
+          isin?: string | null;
+          payment_date_iso?: string | null;
+          payment_date_unix?: number | null;
+          stock_id?: number | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'dividends_stock_stock_id_fkey';
+            columns: ['stock_id'];
+            referencedRelation: 'stocks';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
       funds: {
         Row: {
           created_at: string | null;
