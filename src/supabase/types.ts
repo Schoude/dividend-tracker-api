@@ -126,7 +126,7 @@ export interface Database {
           dividendyieldsnapshot?: number | null;
           employeecount?: number | null;
           eps?: number | null;
-          id?: never;
+          id?: number;
           isin?: string | null;
           marketcapsnapshot?: number | null;
           name?: string | null;
@@ -146,7 +146,7 @@ export interface Database {
           dividendyieldsnapshot?: number | null;
           employeecount?: number | null;
           eps?: number | null;
-          id?: never;
+          id?: number;
           isin?: string | null;
           marketcapsnapshot?: number | null;
           name?: string | null;
@@ -163,7 +163,7 @@ export interface Database {
           created_at: string | null;
           ex_date_iso: string | null;
           ex_date_unix: number | null;
-          fund_id: number;
+          fund_id: number | null;
           id: number;
           isin: string | null;
           payment_date_iso: string | null;
@@ -177,8 +177,8 @@ export interface Database {
           created_at?: string | null;
           ex_date_iso?: string | null;
           ex_date_unix?: number | null;
-          fund_id: number;
-          id?: never;
+          fund_id?: number | null;
+          id?: number;
           isin?: string | null;
           payment_date_iso?: string | null;
           payment_date_unix?: number | null;
@@ -191,8 +191,8 @@ export interface Database {
           created_at?: string | null;
           ex_date_iso?: string | null;
           ex_date_unix?: number | null;
-          fund_id?: number;
-          id?: never;
+          fund_id?: number | null;
+          id?: number;
           isin?: string | null;
           payment_date_iso?: string | null;
           payment_date_unix?: number | null;
@@ -231,7 +231,7 @@ export interface Database {
           exchange_id?: string | null;
           focus?: string | null;
           fund_name?: string | null;
-          id?: never;
+          id?: number;
           image_id?: string | null;
           isin?: string | null;
           price_snapshot?: number | null;
@@ -245,7 +245,7 @@ export interface Database {
           exchange_id?: string | null;
           focus?: string | null;
           fund_name?: string | null;
-          id?: never;
+          id?: number;
           image_id?: string | null;
           isin?: string | null;
           price_snapshot?: number | null;
@@ -346,6 +346,7 @@ export interface Database {
           company_info_id: number | null;
           company_name: string | null;
           created_at: string | null;
+          distribution_frequency: string | null;
           exchange_id: string | null;
           id: number;
           image_id: string | null;
@@ -361,8 +362,9 @@ export interface Database {
           company_info_id?: number | null;
           company_name?: string | null;
           created_at?: string | null;
+          distribution_frequency?: string | null;
           exchange_id?: string | null;
-          id?: never;
+          id?: number;
           image_id?: string | null;
           intl_symbol?: string | null;
           ipo_date?: number | null;
@@ -376,8 +378,9 @@ export interface Database {
           company_info_id?: number | null;
           company_name?: string | null;
           created_at?: string | null;
+          distribution_frequency?: string | null;
           exchange_id?: string | null;
-          id?: never;
+          id?: number;
           image_id?: string | null;
           intl_symbol?: string | null;
           ipo_date?: number | null;
