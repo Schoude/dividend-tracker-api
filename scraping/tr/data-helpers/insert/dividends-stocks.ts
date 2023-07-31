@@ -3,16 +3,28 @@ import { supabase } from '../../../../src/supabase/client.ts';
 import { Database } from '../../../../src/supabase/types.ts';
 import stocks from '../../../../stocks.json' assert { type: 'json' };
 
+const intlSymbolMap = new Map([
+  // dividendhistory | TR
+  ['DLR', 'FQI'],
+]);
+
 type RowInsertDividendsStock =
   Database['public']['Tables']['dividends_stock']['Insert'];
 
 const inserts: RowInsertDividendsStock[] = [];
+const errorStocks: { name: string; symbol: string }[] = [];
 
 for (const stock of stocks) {
+  let symbol = stock.symbol;
+
+  if (intlSymbolMap.has(stock.symbol)) {
+    symbol = intlSymbolMap.get(stock.symbol)!;
+  }
+
   const dbStock = await supabase
     .from('stocks')
     .select('id, isin')
-    .eq('intl_symbol', stock.symbol)
+    .eq('intl_symbol', symbol)
     .single();
 
   if (dbStock.status > 200) {
@@ -21,6 +33,11 @@ for (const stock of stocks) {
       stock.stock_full_name,
       bold(stock.symbol),
     );
+
+    errorStocks.push({
+      name: stock.stock_full_name,
+      symbol: stock.symbol,
+    });
 
     continue;
   }
@@ -56,6 +73,10 @@ const dividendsStockResult = await supabase
   .select('isin, payment_date_iso');
 
 console.log(dividendsStockResult.data);
+
+if (errorStocks.length > 0) {
+  console.log(errorStocks);
+}
 
 if (dividendsStockResult.error) {
   console.log(dividendsStockResult.error);
