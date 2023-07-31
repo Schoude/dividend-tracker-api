@@ -2,34 +2,30 @@ import puppeteer from 'puppeteer';
 import { cheerio } from 'cheerio';
 import { extractSymbolName } from './utils.ts';
 import { Dividend, Stock } from './types.ts';
+import { supabase } from '../../src/supabase/client.ts';
 
-// 12 stocks
-const stocksToScrape = [
-  // Armour Residential REIT
-  'ARR',
-  // AGNC Investment
-  'AGNC',
-  // Arbor Realty Trust
-  'ABR',
-  // BlackRock TCP
-  'TCPC',
-  // Medical Properties Trust
-  'MPW',
-  // AT&T
-  'T',
-  // Devon Energy
-  'DVN',
-  // Kohl's
-  'KSS',
-  // Altria
-  'MO',
-  // B&G Foods
-  'BGS',
-  // British American Tobacco
-  'BTI',
-  // Verizon
-  'VZ',
-];
+const dbStocks = await supabase.from('stocks')
+  .select(`
+    intl_symbol,
+    company_infos (
+      name,
+      countrycode
+    )
+  `)
+  .neq('company_infos.countrycode', null)
+  .eq('company_infos.countrycode', 'US')
+  .neq('intl_symbol', null);
+
+if (dbStocks.error) {
+  console.log(dbStocks.error);
+}
+
+const stocksToScrape = dbStocks.data
+  ?.filter((stock) => stock.intl_symbol != null && stock.company_infos != null)
+  .map((stock) => stock.intl_symbol)!;
+
+console.log(stocksToScrape, stocksToScrape.length);
+
 const stocksData: Stock[] = [];
 export const dividendRowColumnNames = [
   'ex_dividend_date',
@@ -58,6 +54,12 @@ for (let index = 0; index < stocksToScrape.length; index++) {
 
     const stock_full_name = $('h4').text();
     const symbol = extractSymbolName(stock_full_name);
+    if (symbol === '') {
+      console.log('Invalid stock', currentStock);
+
+      continue;
+    }
+
     const last_updated = $('.col-md-8.col-xs-12.col-sm-12')
       .find('p')
       .filter((_, el) => $(el).text().includes('Updated: '))
