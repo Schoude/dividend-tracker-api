@@ -5,6 +5,7 @@ import stocks from '../../../../stocks.json' assert { type: 'json' };
 
 const intlSymbolMap = new Map([
   // dividendhistory | TR
+  // TODO: add more stocks after scraping the TR watchlist again
   ['DLR', 'FQI'],
 ]);
 
