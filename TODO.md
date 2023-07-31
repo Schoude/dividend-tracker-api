@@ -6,9 +6,7 @@ Project Description
 
 ### Todo
 
-- [ ] dividends_stock table -> data from dividendhistory, for funds
 - [ ] portfolio_positions -> portfolio_id, isin, instrument_type
-- [ ] orders table - consists of timeline items & relation to portfolio
 
 ### In Progress
 
@@ -18,3 +16,5 @@ Project Description
 - [x] add user relation to portfolios table
 - [x] users table
 - [x] dividends_fund table -> data from etfDetails.distributions
+- [x] dividends_stock table -> data from dividendhistory, for funds
+- [x] orders table - consists of timeline items & relation to portfolio

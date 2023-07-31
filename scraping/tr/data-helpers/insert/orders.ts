@@ -18,6 +18,7 @@ const insertOrders = timelineDetails.map((detail) => {
     timestamp: event?.data.timestamp,
     isin: instrument?.isin,
     instrument_type: instrument?.typeId,
+    portfolio_id: 1,
   };
 });
 
