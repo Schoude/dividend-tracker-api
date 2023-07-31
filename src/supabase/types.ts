@@ -331,6 +331,42 @@ export interface Database {
           },
         ];
       };
+      orders: {
+        Row: {
+          amount_changed: number | null;
+          id: number;
+          instrument_type: string | null;
+          isin: string | null;
+          name: string | null;
+          order_id: string | null;
+          price: number | null;
+          timestamp: number | null;
+          type: string | null;
+        };
+        Insert: {
+          amount_changed?: number | null;
+          id?: number;
+          instrument_type?: string | null;
+          isin?: string | null;
+          name?: string | null;
+          order_id?: string | null;
+          price?: number | null;
+          timestamp?: number | null;
+          type?: string | null;
+        };
+        Update: {
+          amount_changed?: number | null;
+          id?: number;
+          instrument_type?: string | null;
+          isin?: string | null;
+          name?: string | null;
+          order_id?: string | null;
+          price?: number | null;
+          timestamp?: number | null;
+          type?: string | null;
+        };
+        Relationships: [];
+      };
       portfolios: {
         Row: {
           created_at: string;
