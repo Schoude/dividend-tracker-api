@@ -334,6 +334,7 @@ export interface Database {
       orders: {
         Row: {
           amount_changed: number | null;
+          created_at: string | null;
           id: number;
           instrument_type: string | null;
           isin: string | null;
@@ -342,9 +343,11 @@ export interface Database {
           price: number | null;
           timestamp: number | null;
           type: string | null;
+          updated_at: string | null;
         };
         Insert: {
           amount_changed?: number | null;
+          created_at?: string | null;
           id?: number;
           instrument_type?: string | null;
           isin?: string | null;
@@ -353,9 +356,11 @@ export interface Database {
           price?: number | null;
           timestamp?: number | null;
           type?: string | null;
+          updated_at?: string | null;
         };
         Update: {
           amount_changed?: number | null;
+          created_at?: string | null;
           id?: number;
           instrument_type?: string | null;
           isin?: string | null;
@@ -364,6 +369,7 @@ export interface Database {
           price?: number | null;
           timestamp?: number | null;
           type?: string | null;
+          updated_at?: string | null;
         };
         Relationships: [];
       };

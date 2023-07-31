@@ -9,8 +9,6 @@ const insertOrders = timelineDetails.map((detail) => {
   const instrument = [...instruments, ...instrumentsWatchlist]
     .find((instrument) => instrument.company.name === detail.name);
 
-  console.log(instrument);
-
   return {
     order_id: detail.id,
     type: detail.type,
@@ -23,4 +21,13 @@ const insertOrders = timelineDetails.map((detail) => {
   };
 });
 
-console.log({ insertOrders });
+const ordersResponse = await supabase
+  .from('orders')
+  .insert(insertOrders)
+  .select();
+
+if (ordersResponse.error) {
+  console.log(ordersResponse.error);
+}
+
+console.log(ordersResponse.data);
