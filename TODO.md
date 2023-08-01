@@ -6,9 +6,9 @@ Project Description
 
 ### Todo
 
-### In Progress
+- [ ] auth through supabase
 
-- [x] positions -> portfolio_id, isin, instrument_type
+### In Progress
 
 ### Done ✓
 
@@ -17,3 +17,4 @@ Project Description
 - [x] dividends_fund table -> data from etfDetails.distributions
 - [x] dividends_stock table -> data from dividendhistory, for funds
 - [x] orders table - consists of timeline items & relation to portfolio
+- [x] positions -> portfolio_id, isin, instrument_type
