@@ -4,6 +4,17 @@ import { extractSymbolName } from './utils.ts';
 import { Dividend, Stock } from './types.ts';
 import { supabase } from '../../src/supabase/client.ts';
 
+const intlSymbolMap = new Map([
+  // TR | dividendhistory
+  // Digital Realty Trust
+  ['FQI', 'DLR'],
+  // B&G Foods
+  ['DHR', 'BGS'],
+  // BlackRock TCP Capital Corp.
+  // ['TCPC', null],
+  ['VERIZ', 'VZ'],
+]);
+
 const dbStocks = await supabase.from('stocks')
   .select(`
     intl_symbol,
@@ -20,11 +31,28 @@ if (dbStocks.error) {
   console.log(dbStocks.error);
 }
 
+const replacedIntlSymbols: {
+  symbolTR: string;
+  symbolDividendHistory: string;
+}[] = [];
+
 const stocksToScrape = dbStocks.data
   ?.filter((stock) => stock.intl_symbol != null && stock.company_infos != null)
-  .map((stock) => stock.intl_symbol)!;
+  .map((stock) => {
+    if (intlSymbolMap.has(stock.intl_symbol!)) {
+      replacedIntlSymbols.push({
+        symbolTR: stock.intl_symbol!,
+        symbolDividendHistory: intlSymbolMap.get(stock.intl_symbol!)!,
+      });
+
+      return intlSymbolMap.get(stock.intl_symbol!);
+    }
+
+    return stock.intl_symbol;
+  })!;
 
 console.log(stocksToScrape, stocksToScrape.length);
+console.log({ replacedIntlSymbols }, replacedIntlSymbols.length);
 
 const stocksData: Stock[] = [];
 export const dividendRowColumnNames = [

@@ -5,8 +5,13 @@ import stocks from '../../../../stocks.json' assert { type: 'json' };
 
 const intlSymbolMap = new Map([
   // dividendhistory | TR
-  // TODO: add more stocks after scraping the TR watchlist again
+  // Digital Realty Trust
   ['DLR', 'FQI'],
+  // B&G Foods
+  ['BGS', 'DHR'],
+  // BlackRock TCP Capital Corp.
+  // ['TCPC', null],
+  ['VZ', 'VERIZ'],
 ]);
 
 type RowInsertDividendsStock =
