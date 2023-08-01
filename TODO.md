@@ -6,10 +6,9 @@ Project Description
 
 ### Todo
 
-- [ ] portfolio_positions -> portfolio_id, isin, instrument_type
-
 ### In Progress
 
+- [x] positions -> portfolio_id, isin, instrument_type
 
 ### Done ✓
 

@@ -25,6 +25,7 @@
     "data:dividends-fund-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/dividends-fund.ts",
     "data:dividends-stocks-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/dividends-stocks.ts",
     "data:orders-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/orders.ts",
+    "data:positions-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/positions.ts",
     // Supabase Query Tests
     "query-test:stocks": "deno run -A --unstable ./src/supabase/query-tests/stocks.ts",
     "query-test:funds": "deno run -A --unstable ./src/supabase/query-tests/funds.ts",
