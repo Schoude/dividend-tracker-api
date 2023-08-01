@@ -7,6 +7,7 @@ Project Description
 ### Todo
 
 - [ ] auth through supabase
+- [ ] api route to get the portfolio, positions and stock/funds data with orders and dividends
 
 ### In Progress
 
