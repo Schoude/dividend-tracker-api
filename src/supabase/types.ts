@@ -340,6 +340,7 @@ export interface Database {
           isin: string | null;
           name: string | null;
           order_id: string | null;
+          portfolio_id: number;
           price: number | null;
           timestamp: number | null;
           type: string | null;
@@ -353,6 +354,7 @@ export interface Database {
           isin?: string | null;
           name?: string | null;
           order_id?: string | null;
+          portfolio_id: number;
           price?: number | null;
           timestamp?: number | null;
           type?: string | null;
@@ -366,12 +368,20 @@ export interface Database {
           isin?: string | null;
           name?: string | null;
           order_id?: string | null;
+          portfolio_id?: number;
           price?: number | null;
           timestamp?: number | null;
           type?: string | null;
           updated_at?: string | null;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: 'orders_portfolio_id_fkey';
+            columns: ['portfolio_id'];
+            referencedRelation: 'portfolios';
+            referencedColumns: ['id'];
+          },
+        ];
       };
       portfolios: {
         Row: {
@@ -400,6 +410,40 @@ export interface Database {
             foreignKeyName: 'portfolios_user_id_fkey';
             columns: ['user_id'];
             referencedRelation: 'users';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
+      positions: {
+        Row: {
+          created_at: string | null;
+          id: number;
+          instrument_type: string | null;
+          isin: string | null;
+          portfolio_id: number | null;
+          updated_at: string | null;
+        };
+        Insert: {
+          created_at?: string | null;
+          id?: number;
+          instrument_type?: string | null;
+          isin?: string | null;
+          portfolio_id?: number | null;
+          updated_at?: string | null;
+        };
+        Update: {
+          created_at?: string | null;
+          id?: number;
+          instrument_type?: string | null;
+          isin?: string | null;
+          portfolio_id?: number | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'positions_portfolio_id_fkey';
+            columns: ['portfolio_id'];
+            referencedRelation: 'portfolios';
             referencedColumns: ['id'];
           },
         ];
