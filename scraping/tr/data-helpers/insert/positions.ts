@@ -7,9 +7,10 @@ for await (const instrument of instruments) {
   const foundPosition = await supabase
     .from('positions')
     .select('id')
-    .eq('isin', instrument.isin);
+    .eq('isin', instrument.isin)
+    .single();
 
-  if (foundPosition.data) {
+  if (foundPosition.data?.id) {
     console.log('Instrument already in portfolio');
     continue;
   }
