@@ -13,7 +13,7 @@
     "scrape:price-snapshots": "deno run -A --unstable ./scraping/tr/scrapes/scrape-price-snapshots.ts --cli",
     "scrape:timeline": "deno run -A --unstable ./scraping/tr/scrapes/scrape-timeline.ts --cli",
     "scrape:all": "deno run -A --unstable ./scraping/tr/scrapes/scrape-all.ts",
-    // Data helpers
+    // Data helpers START ###
     "data:sectors-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/sectors.ts",
     "data:analyst-ratings-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/analyst-ratings.ts",
     "data:company-infos-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-infos.ts",
@@ -27,7 +27,9 @@
     "data:dividends-fund-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/dividends-fund.ts",
     "data:dividends-stocks-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/dividends-stocks.ts",
     "data:orders-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/orders.ts",
+    "data:orders-missing-update": "deno run -A --unstable ./scraping/tr/data-helpers/update/orders-missing.ts",
     "data:positions-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/positions.ts",
+    // Data helpers END ###
     // Supabase Query Tests
     "query-test:stocks": "deno run -A --unstable ./src/supabase/query-tests/stocks.ts",
     "query-test:stocks-symbol-null": "deno run -A --unstable ./src/supabase/query-tests/stocks-symbol-null.ts",
