@@ -3,17 +3,6 @@ import { supabase } from '../../../../src/supabase/client.ts';
 import { Database } from '../../../../src/supabase/types.ts';
 import stocks from '../../../../stocks.json' assert { type: 'json' };
 
-const intlSymbolMap = new Map([
-  // dividendhistory | TR
-  // Digital Realty Trust
-  ['DLR', 'FQI'],
-  // B&G Foods
-  ['BGS', 'DHR'],
-  // BlackRock TCP Capital Corp.
-  // ['TCPC', null],
-  ['VZ', 'VERIZ'],
-]);
-
 type RowInsertDividendsStock =
   Database['public']['Tables']['dividends_stock']['Insert'];
 
@@ -21,11 +10,7 @@ const inserts: RowInsertDividendsStock[] = [];
 const errorStocks: { name: string; symbol: string }[] = [];
 
 for (const stock of stocks) {
-  let symbol = stock.symbol;
-
-  if (intlSymbolMap.has(stock.symbol)) {
-    symbol = intlSymbolMap.get(stock.symbol)!;
-  }
+  const symbol = stock.symbol;
 
   const dbStock = await supabase
     .from('stocks')

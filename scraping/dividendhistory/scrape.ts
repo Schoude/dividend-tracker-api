@@ -4,17 +4,6 @@ import { extractSymbolName } from './utils.ts';
 import { Dividend, Stock } from './types.ts';
 import { supabase } from '../../src/supabase/client.ts';
 
-const intlSymbolMap = new Map([
-  // TR | dividendhistory
-  // Digital Realty Trust
-  ['FQI', 'DLR'],
-  // B&G Foods
-  ['DHR', 'BGS'],
-  // BlackRock TCP Capital Corp.
-  // ['TCPC', null],
-  ['VERIZ', 'VZ'],
-]);
-
 const dbStocks = await supabase.from('stocks')
   .select(`
     intl_symbol,
@@ -23,36 +12,19 @@ const dbStocks = await supabase.from('stocks')
       countrycode
     )
   `)
-  .neq('company_infos.countrycode', null)
-  .eq('company_infos.countrycode', 'US')
   .neq('intl_symbol', null);
 
 if (dbStocks.error) {
   console.log(dbStocks.error);
 }
 
-const replacedIntlSymbols: {
-  symbolTR: string;
-  symbolDividendHistory: string;
-}[] = [];
-
 const stocksToScrape = dbStocks.data
-  ?.filter((stock) => stock.intl_symbol != null && stock.company_infos != null)
-  .map((stock) => {
-    if (intlSymbolMap.has(stock.intl_symbol!)) {
-      replacedIntlSymbols.push({
-        symbolTR: stock.intl_symbol!,
-        symbolDividendHistory: intlSymbolMap.get(stock.intl_symbol!)!,
-      });
-
-      return intlSymbolMap.get(stock.intl_symbol!);
-    }
+  ?.map((stock) => {
 
     return stock.intl_symbol;
   })!;
 
 console.log(stocksToScrape, stocksToScrape.length);
-console.log({ replacedIntlSymbols }, replacedIntlSymbols.length);
 
 const stocksData: Stock[] = [];
 export const dividendRowColumnNames = [
@@ -68,7 +40,7 @@ console.log('Crawl start');
 const start = performance.now();
 
 for (let index = 0; index < stocksToScrape.length; index++) {
-  const currentStock = stocksToScrape[index];
+  const currentStock = stocksToScrape[index]!;
   const url = `https://dividendhistory.org/payout/${currentStock}/`;
 
   try {
@@ -81,11 +53,13 @@ for (let index = 0; index < stocksToScrape.length; index++) {
     const $ = cheerio.load(htmlPage);
 
     const stock_full_name = $('h4').text();
-    const symbol = extractSymbolName(stock_full_name);
+    let symbol = extractSymbolName(stock_full_name);
     if (symbol === '') {
-      console.log('Invalid stock', currentStock);
+      console.log('Invalid stock', currentStock, stock_full_name);
 
       continue;
+    } else {
+      symbol = currentStock;
     }
 
     const last_updated = $('.col-md-8.col-xs-12.col-sm-12')

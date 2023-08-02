@@ -6,12 +6,13 @@ Project Description
 
 ### Todo
 
-- [ ] add data script to fix the intl symbols -> update the wrong and empty symbols from TR
 - [ ] add data script to fix the missing orders (mercedes (2 stocks), meta (1 stock))
 - [ ] api route to get the portfolio, positions and stock/funds data with orders and dividends
 - [ ] auth through supabase
 
 ### In Progress
+
+- [ ] add data script to fix the intl symbols -> update the wrong and empty symbols from TR
 
 ### Done ✓
 

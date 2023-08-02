@@ -18,6 +18,7 @@
     "data:analyst-ratings-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/analyst-ratings.ts",
     "data:company-infos-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-infos.ts",
     "data:stocks-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/stocks.ts",
+    "data:stock-symbols-update": "deno run -A --unstable ./scraping/tr/data-helpers/update/stock-symbols.ts",
     // has to come after stocks
     "data:company-events-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/company-events.ts",
     "data:stocks-distribution-frequency-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/stocks-distribution-frequency.ts",
@@ -29,6 +30,7 @@
     "data:positions-insert": "deno run -A --unstable ./scraping/tr/data-helpers/insert/positions.ts",
     // Supabase Query Tests
     "query-test:stocks": "deno run -A --unstable ./src/supabase/query-tests/stocks.ts",
+    "query-test:stocks-symbol-null": "deno run -A --unstable ./src/supabase/query-tests/stocks-symbol-null.ts",
     "query-test:funds": "deno run -A --unstable ./src/supabase/query-tests/funds.ts",
     "query-test:portfolios": "deno run -A --unstable ./src/supabase/query-tests/portfolios.ts",
     // DB setup
