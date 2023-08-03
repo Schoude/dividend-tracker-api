@@ -72,6 +72,59 @@ router
         error: (error as Error).message,
       };
     }
+  })
+  .get('/portfolio/:id/detail', async (context) => {
+    const portfolioId = context.params.id;
+
+    try {
+      const portfolioResponse = await supabase
+        .from('portfolios')
+        .select(
+          `id,
+          name,
+          created_at,
+          updated_at,
+          orders (
+            order_id,
+            type,
+            amount_changed,
+            name,
+            price,
+            timestamp,
+            isin,
+            instrument_type
+          ),
+          positions (
+            isin,
+            instrument_type
+          )
+        `,
+        )
+        .eq('id', portfolioId)
+        .order('timestamp', {
+          foreignTable: 'orders',
+          ascending: false,
+        });
+
+      if (portfolioResponse.error) {
+        context.response.status = Status.InternalServerError;
+        context.response.body = {
+          error: 'Error getting the portfolio.',
+        };
+
+        return;
+      }
+
+      context.response.status = Status.OK;
+      context.response.body = {
+        data: portfolioResponse.data,
+      };
+    } catch (error) {
+      context.response.status = Status.InternalServerError;
+      context.response.body = {
+        error: (error as Error).message,
+      };
+    }
   });
 
 export { router };
