@@ -1,6 +1,8 @@
 import { Status } from 'https://deno.land/std@0.193.0/http/http_status.ts';
 import { Router } from 'oak';
 import { supabase } from '../supabase/client.ts';
+import { getStocksByISINs } from '../supabase/utils/stocks.ts';
+import { getFundsByISINs } from '../supabase/utils/funds.ts';
 
 const router = new Router();
 router
@@ -104,7 +106,8 @@ router
         .order('timestamp', {
           foreignTable: 'orders',
           ascending: false,
-        });
+        })
+        .single();
 
       if (portfolioResponse.error) {
         context.response.status = Status.InternalServerError;
@@ -115,9 +118,31 @@ router
         return;
       }
 
+      const portfolio = portfolioResponse.data;
+      // Get the stocks of the portfolio
+
+      const stockISINs = portfolio.positions
+        .filter((position) => position.instrument_type === 'stock')
+        .map((stock) => stock.isin)
+        .filter((isin) => isin != null) as string[];
+
+      const fundISINs = portfolio?.positions
+        .filter((position) => position.instrument_type === 'fund')
+        .map((fund) => fund.isin)
+        .filter((isin) => isin != null) as string[];
+
+      const stocksOfPortfolio = await getStocksByISINs(stockISINs);
+      const fundsOfPortfolio = await getFundsByISINs(fundISINs);
+
       context.response.status = Status.OK;
       context.response.body = {
-        data: portfolioResponse.data,
+        data: {
+          name: portfolio.name,
+          stocks: stocksOfPortfolio,
+          funds: fundsOfPortfolio,
+          created_at: portfolio.created_at,
+          updated_at: portfolio.updated_at,
+        },
       };
     } catch (error) {
       context.response.status = Status.InternalServerError;
