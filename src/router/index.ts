@@ -18,7 +18,7 @@ router
 
     await next();
   })
-  .get('/portfolio/:userId', async (context) => {
+  .get('/portfolios/:userId', async (context) => {
     // TODO: get userID from stored session
     const userId = context.params.userId;
 
