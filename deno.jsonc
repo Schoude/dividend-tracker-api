@@ -36,6 +36,7 @@
     "query-test:funds": "deno run -A --unstable ./src/supabase/query-tests/funds.ts",
     "query-test:portfolios": "deno run -A --unstable ./src/supabase/query-tests/portfolios.ts",
     // Start the API
+    "dev": "deno run -A --unstable --watch app.ts",
     "start": "deno run -A --unstable app.ts"
   },
   "fmt": {

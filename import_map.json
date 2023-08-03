@@ -3,6 +3,7 @@
     "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
     "cheerio": "https://deno.land/x/cheerio@1.0.7/mod.ts",
     "puppeteer": "https://deno.land/x/puppeteer@16.2.0/mod.ts",
-    "std/": "https://deno.land/std@0.195.0/"
+    "std/": "https://deno.land/std@0.195.0/",
+    "oak": "https://deno.land/x/oak@v12.6.0/mod.ts"
   }
 }
