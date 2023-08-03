@@ -6,7 +6,6 @@ Project Description
 
 ### Todo
 
-- [ ] FIX timeline and timeline details scrape for sparplan orders
 - [ ] api route to get the portfolio, positions and stock/funds data with orders and dividends
 - [ ] auth through supabase
 
@@ -23,3 +22,4 @@ Project Description
 - [x] positions -> portfolio_id, isin, instrument_type
 - [x] add data script to fix the intl symbols -> update the wrong and empty symbols from TR
 - [x] add data script to fix the missing orders (mercedes (2 stocks), meta (1 stock), Daimler Truck Holding (1), Tesla (1))
+- [x] FIX timeline and timeline details scrape for savings plan orders

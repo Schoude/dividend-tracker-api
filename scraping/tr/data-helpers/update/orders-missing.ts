@@ -48,6 +48,18 @@ const missingOrderInserts: Order[] = [
     timestamp: 1641168000000,
     type: 'buy',
   },
+  // Funds
+  {
+    isin: 'LU2572257124',
+    instrument_type: 'fund',
+    name: 'MSCI World III USD (Dist)',
+    amount_changed: 101.3835,
+    order_id: crypto.randomUUID(),
+    portfolio_id: 1,
+    price: 76.09,
+    timestamp: 1679011200000,
+    type: 'buy',
+  },
 ];
 
 const orderInsertResult = await supabase

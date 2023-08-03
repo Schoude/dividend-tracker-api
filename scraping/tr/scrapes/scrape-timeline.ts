@@ -64,10 +64,8 @@ export async function scrapeTimeline() {
     }
 
     const subId = extractSubId(event.data);
-    console.log(subId);
 
     if (subId !== 1) {
-      console.log('timeline detail');
       const timelineDetail = JSON.parse(jsonString) as TimelineDetail;
 
       const isRegular = timelineDetail.titleText.includes('Kauf') ||
@@ -89,6 +87,8 @@ export async function scrapeTimeline() {
           price: priceRegular!,
         });
       } else {
+        console.log('#### SAVINGS PLAN');
+
         const costsSavingPlan = Math.abs(
           timelineDetail.sections.find((section) =>
             section.title === 'Historie'
@@ -117,9 +117,6 @@ export async function scrapeTimeline() {
 
       trSocket.send(`unsub ${subId}`);
     } else {
-      console.log('timeline list');
-      trSocket.send('unsub 1');
-
       const timeline = JSON.parse(jsonString) as Timeline;
 
       const inlcludedData = timeline.data.filter((item) => {
@@ -131,13 +128,39 @@ export async function scrapeTimeline() {
 
       // Timeline details for each included.
       inlcludedData.forEach((data, index) => {
-        const sub = `sub ${
-          timelineResults.length + index + 2
-        } {"type": "${WS_CONNECTION_TYPE.TIMELINE_DETAIL}", "id": "${data.data.id}", "token": "${TR_SESSION}"}`;
+        // Get savings plan detail data from the top level timeline
+        if (data.data.body?.includes('Sparplan ausgeführt')) {
+          const costsSavingPlan = Math.abs(data.data.cashChangeAmount!);
 
-        trSocket.send(
-          sub,
-        );
+          const priceSavingsPlan = Number(
+            data.data?.body?.match(/\d+(,\d+)/)
+              ?.[0].replace(',', '.'),
+          );
+
+          const amountSavingsPlan = Number(
+            (costsSavingPlan / priceSavingsPlan).toFixed(6),
+          );
+
+          const detailSavingsPlan: TimelineOrderDetail = {
+            id: data.data.id,
+            type: 'buy',
+            amountChanged: amountSavingsPlan,
+            name: data.data.title,
+            price: priceSavingsPlan!,
+          };
+
+          // console.log({ detailSavingsPlan });
+
+          timeLineDetails.push(detailSavingsPlan);
+        } else {
+          const sub = `sub ${
+            timelineResults.length + index + 2
+          } {"type": "${WS_CONNECTION_TYPE.TIMELINE_DETAIL}", "id": "${data.data.id}", "token": "${TR_SESSION}"}`;
+
+          trSocket.send(
+            sub,
+          );
+        }
       });
 
       // re-sub to the timeline always with the first entry of the result as "after"
