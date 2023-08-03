@@ -20,7 +20,6 @@ if (dbStocks.error) {
 
 const stocksToScrape = dbStocks.data
   ?.map((stock) => {
-
     return stock.intl_symbol;
   })!;
 

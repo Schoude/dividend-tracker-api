@@ -1,89 +1,89 @@
-import { supabase } from "../../../../src/supabase/client.ts";
+import { supabase } from '../../../../src/supabase/client.ts';
 
 const trStocksWithBadSymbols = [
   // ## no symbols from TR
   {
     // no dividends
-    isin: "US30303M1027",
-    company_name: "Meta Platforms",
-    intl_symbol: 'META'
+    isin: 'US30303M1027',
+    company_name: 'Meta Platforms',
+    intl_symbol: 'META',
   },
   {
-    isin: "BRVALEACNOR0",
-    company_name: "Vale",
-    intl_symbol: 'VALE'
+    isin: 'BRVALEACNOR0',
+    company_name: 'Vale',
+    intl_symbol: 'VALE',
   },
   {
-    isin: "GB0007188757",
-    company_name: "Rio Tinto",
-    intl_symbol: 'RIO'
+    isin: 'GB0007188757',
+    company_name: 'Rio Tinto',
+    intl_symbol: 'RIO',
   },
 
   {
-    isin: "US1270971039",
-    company_name: "Coterra Energy",
-    intl_symbol: 'CTRA'
+    isin: 'US1270971039',
+    company_name: 'Coterra Energy',
+    intl_symbol: 'CTRA',
   },
   {
-    isin: "US09259E1082",
-    company_name: "BlackRock TCP Capital",
-    intl_symbol: 'TCPC'
+    isin: 'US09259E1082',
+    company_name: 'BlackRock TCP Capital',
+    intl_symbol: 'TCPC',
   },
   {
-    isin: "US4312841087",
-    company_name: "Highwoods Properties",
-    intl_symbol: 'HIW'
+    isin: 'US4312841087',
+    company_name: 'Highwoods Properties',
+    intl_symbol: 'HIW',
   },
   {
-    isin: "US3026352068",
-    company_name: "FS KKR Capital",
-    intl_symbol: 'FSK'
+    isin: 'US3026352068',
+    company_name: 'FS KKR Capital',
+    intl_symbol: 'FSK',
   },
   {
-    isin: "US7181721090",
-    company_name: "Philip Morris",
-    intl_symbol: 'PM'
+    isin: 'US7181721090',
+    company_name: 'Philip Morris',
+    intl_symbol: 'PM',
   },
   {
-    isin: "US78440X8873",
-    company_name: "SL Green Realty REIT",
-    intl_symbol: 'SLG'
+    isin: 'US78440X8873',
+    company_name: 'SL Green Realty REIT',
+    intl_symbol: 'SLG',
   },
   // ## Wrong symbols from TR
   {
-    isin: "US05508R1068",
-    company_name: "B&G Foods",
-    intl_symbol: 'BGS'
+    isin: 'US05508R1068',
+    company_name: 'B&G Foods',
+    intl_symbol: 'BGS',
   },
   {
-    isin: "US92343V1044",
-    company_name: "Verizon Communications",
-    intl_symbol: 'VZ'
+    isin: 'US92343V1044',
+    company_name: 'Verizon Communications',
+    intl_symbol: 'VZ',
   },
   {
-    isin: "US2538681030",
-    company_name: "Digital Realty Trust",
-    intl_symbol: 'DLR'
+    isin: 'US2538681030',
+    company_name: 'Digital Realty Trust',
+    intl_symbol: 'DLR',
   },
   {
-    isin: "AU000000FMG4",
-    company_name: "Fortescue Metals",
-    intl_symbol: 'FSUMF'
+    isin: 'AU000000FMG4',
+    company_name: 'Fortescue Metals',
+    intl_symbol: 'FSUMF',
   },
   {
-    isin: "CA8934631091",
-    company_name: "TransAlta Renewables",
-    intl_symbol: 'TSX/RNW'
+    isin: 'CA8934631091',
+    company_name: 'TransAlta Renewables',
+    intl_symbol: 'TSX/RNW',
   },
   {
-    isin: "GB0004544929",
-    company_name: "Imperial Brands",
-    intl_symbol: 'IMBBY'
+    isin: 'GB0004544929',
+    company_name: 'Imperial Brands',
+    intl_symbol: 'IMBBY',
   },
   {
-    isin: "GB0002875804",
-    company_name: "British American Tobacco",
-    intl_symbol: 'BTI'
+    isin: 'GB0002875804',
+    company_name: 'British American Tobacco',
+    intl_symbol: 'BTI',
   },
   // ### EXCEPTIONS because they don't pay dividends
   // or are not listed in dividendhistory
