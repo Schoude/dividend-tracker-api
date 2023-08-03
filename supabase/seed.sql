@@ -5,4 +5,4 @@ values ('Marc', 'marcbaque1311@gmail.com', '$2a$10$DhmDIPYc/0QChE.EMBcfdeWBasN9O
 
 -- Portfolios
 insert into public.portfolios (name, user_id)
-values ('Test Portfolios', 1);
+values ('Trade Republic', 1);
