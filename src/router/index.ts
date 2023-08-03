@@ -134,12 +134,92 @@ router
       const stocksOfPortfolio = await getStocksByISINs(stockISINs);
       const fundsOfPortfolio = await getFundsByISINs(fundISINs);
 
+      const stocksStatus = stocksOfPortfolio.map((stock) => {
+        const ordersOfStock = portfolio?.orders.filter((order) =>
+          order.isin === stock.company_infos?.isin
+        );
+
+        const totalAmount = ordersOfStock?.reduce((acc, order) => {
+          acc += order.amount_changed ?? 0;
+
+          return acc;
+        }, 0)!;
+
+        const averagePrice = Number((ordersOfStock?.reduce((acc, order) => {
+          acc += order.price ?? 0;
+
+          return acc;
+        }, 0)! / ordersOfStock?.length!).toFixed(2));
+
+        const averageValue = Number((totalAmount * averagePrice).toFixed(2));
+        const currentValue = Number(
+          (totalAmount * stock.price_snapshot!).toFixed(2),
+        );
+        const valueChange = Number((currentValue - averageValue).toFixed(2));
+        const percentChange = Number(
+          Number((valueChange / averageValue) * 100).toFixed(2),
+        );
+
+        return {
+          name: stock.company_infos?.name,
+          isin: stock.isin,
+          totalAmount,
+          averagePrice,
+          currentPrice: stock.price_snapshot,
+          averageValue,
+          currentValue,
+          percentChange,
+          valueChange,
+        };
+      });
+
+      const fundsStatus = fundsOfPortfolio.map((fund) => {
+        const ordersOfFund = portfolio?.orders.filter((order) =>
+          order.isin === fund.isin
+        );
+
+        const totalAmount = ordersOfFund?.reduce((acc, order) => {
+          acc += order.amount_changed ?? 0;
+
+          return acc;
+        }, 0)!;
+
+        const averagePrice = Number((ordersOfFund?.reduce((acc, order) => {
+          acc += order.price ?? 0;
+
+          return acc;
+        }, 0)! / ordersOfFund?.length!).toFixed(2));
+
+        const averageValue = Number((totalAmount * averagePrice).toFixed(2));
+        const currentValue = Number(
+          (totalAmount * fund.price_snapshot!).toFixed(2),
+        );
+        const valueChange = Number((currentValue - averageValue).toFixed(2));
+        const percentChange = Number(
+          Number((valueChange / averageValue) * 100).toFixed(2),
+        );
+
+        return {
+          name: fund.fund_name,
+          isin: fund.isin,
+          totalAmount,
+          averagePrice,
+          currentPrice: fund.price_snapshot,
+          averageValue,
+          currentValue,
+          percentChange,
+          valueChange,
+        };
+      });
+
       context.response.status = Status.OK;
       context.response.body = {
         data: {
           name: portfolio.name,
           stocks: stocksOfPortfolio,
           funds: fundsOfPortfolio,
+          stocksStatus,
+          fundsStatus,
           created_at: portfolio.created_at,
           updated_at: portfolio.updated_at,
         },
