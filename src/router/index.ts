@@ -216,6 +216,7 @@ router
       context.response.body = {
         data: {
           name: portfolio.name,
+          orders: portfolio.orders,
           stocks: stocksOfPortfolio,
           funds: fundsOfPortfolio,
           stocksStatus,
