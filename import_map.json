@@ -5,6 +5,7 @@
     "puppeteer": "https://deno.land/x/puppeteer@16.2.0/mod.ts",
     "std/": "https://deno.land/std@0.195.0/",
     "oak": "https://deno.land/x/oak@v12.6.0/mod.ts",
-    "valibot": "https://deno.land/x/valibot@v0.11.1/mod.ts"
+    "valibot": "https://deno.land/x/valibot@v0.11.1/mod.ts",
+    "checksum": "https://deno.land/x/checksum@1.4.0/mod.ts"
   }
 }

@@ -7,11 +7,11 @@ import {
   string,
   type ValiError,
 } from 'valibot';
-
 import { Router } from 'oak';
 import { Status } from 'https://deno.land/std@0.193.0/http/http_status.ts';
 import { supabase } from '../supabase/client.ts';
 import * as bcrypt from 'bcrypt';
+import { Hash } from 'checksum';
 
 const LoginSchema = object({
   email: string([email()]),
@@ -33,7 +33,7 @@ authRouter
 
       const userSelect = await supabase
         .from('users')
-        .select('email, password')
+        .select('id, email, password')
         .eq('email', creds.email)
         .single();
 
@@ -46,7 +46,7 @@ authRouter
         return;
       }
 
-      // Check if a session already exists.
+      // TODO: Check if a session already exists.
 
       if (
         !await bcrypt.compare(
@@ -62,12 +62,25 @@ authRouter
         return;
       }
 
-      context.response.status = Status.OK;
-      context.response.body = {
-        data: {
-          email: userSelect.data?.email,
-        },
+      const userData =
+        `${userSelect.data?.id}_${creds.email}_${creds.password}`;
+
+      const newSession = {
+        hash: new Hash('md5').digestString(userData).hex(),
+        user_id: userSelect.data?.id,
       };
+
+      const sessionResponse = await supabase
+        .from('user_sessions')
+        .insert(newSession)
+        .select('*')
+        .single();
+
+      if (sessionResponse.status > 200) {
+        console.log('error');
+      }
+
+      context.response.status = Status.OK;
     } catch (error) {
       context.response.status = Status.UnprocessableEntity;
       context.response.body = {
