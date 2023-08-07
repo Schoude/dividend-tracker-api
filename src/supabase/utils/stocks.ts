@@ -32,10 +32,17 @@ export async function getStocksByISINs(stockIsins: string[]) {
           eps
         ),
         analyst_ratings (
-          recommendations_buy
+          target_price_high,
+          target_price_average,
+          target_price_low,
+          recommendations_buy,
+          recommendations_outperform,
+          recommendations_hold,
+          recommendations_underperform
         ),
         sectors (
-          name
+          name,
+          icon
         ),
         company_events (
           title,

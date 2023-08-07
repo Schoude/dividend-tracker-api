@@ -9,7 +9,8 @@ export async function getFundsByISINs(fundIsins: string[]) {
         fund_name,
         price_snapshot,
         sectors (
-          name
+          name,
+          icon
         ),
         dividends_fund (
           isin,
