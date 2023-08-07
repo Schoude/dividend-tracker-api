@@ -5,3 +5,4 @@ src/supabase/query-tests
 stocks.json
 .env
 scripts
+*.http
