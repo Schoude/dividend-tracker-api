@@ -6,8 +6,6 @@ Project Description
 
 ### Todo
 
-- [ ] api route to get the portfolio, positions and stock/funds data with orders
-      and dividends
 - [ ] auth through supabase
 
 ### In Progress
@@ -25,3 +23,4 @@ Project Description
 - [x] add data script to fix the missing orders (mercedes (2 stocks), meta (1
       stock), Daimler Truck Holding (1), Tesla (1))
 - [x] FIX timeline and timeline details scrape for savings plan orders
+- [x] api route to get the portfolio, positions and stock/funds data with orders and dividends
