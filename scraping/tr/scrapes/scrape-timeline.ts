@@ -68,8 +68,8 @@ export async function scrapeTimeline() {
     if (subId !== 1) {
       const timelineDetail = JSON.parse(jsonString) as TimelineDetail;
 
-      const isRegular = timelineDetail.titleText.includes('Kauf') ||
-        timelineDetail.titleText.includes('Verkauf');
+      const isRegular = timelineDetail.titleText.includes('Kauf');
+      //|| timelineDetail.titleText.includes('Verkauf');
 
       if (isRegular) {
         const amountRegular = timelineDetail.sections.find((section) =>
@@ -121,7 +121,7 @@ export async function scrapeTimeline() {
 
       const inlcludedData = timeline.data.filter((item) => {
         return (item.data.body?.includes('Kauf zu') ||
-          item.data.body?.includes('Verkauf zu') ||
+          // item.data.body?.includes('Verkauf zu') ||
           item.data.body?.includes('Sparplan ausgeführt')) &&
           availableInstruments.includes(item.data.title);
       });
