@@ -4,6 +4,7 @@ export type StockDetailSaveable = Pick<
   | 'company'
   | 'events'
   | 'analystRating'
+  | 'dividends'
 >;
 
 export interface StockDetail {

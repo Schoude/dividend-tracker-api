@@ -95,6 +95,7 @@ export async function scrapeStockDetails() {
       company: stockDetail.company,
       events: stockDetail.events,
       analystRating: stockDetail.analystRating,
+      dividends: stockDetail.dividends,
     });
 
     if (processedStocksCount === instrumentsCompleteStocks.length) {
