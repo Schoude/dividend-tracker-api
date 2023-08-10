@@ -215,6 +215,7 @@ router
       context.response.status = Status.OK;
       context.response.body = {
         data: {
+          id: portfolio.id,
           name: portfolio.name,
           orders: portfolio.orders,
           stocks: stocksOfPortfolio,
