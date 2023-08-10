@@ -6,8 +6,14 @@ export async function getFundsByISINs(fundIsins: string[]) {
       .from('funds')
       .select(`
         isin,
+        description,
+        distribution_frequency,
+        exchange_id,
+        focus,
         fund_name,
+        image_id,
         price_snapshot,
+        type_id,
         sectors (
           name,
           icon
