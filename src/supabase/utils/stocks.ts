@@ -7,7 +7,7 @@ export async function getStocksByISINs(stockIsins: string[]) {
       .select(`
         isin,
         intl_symbol,
-        company_name,
+        name,
         price_snapshot,
         ipo_date,
         type_id,

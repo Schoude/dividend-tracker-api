@@ -19,7 +19,7 @@ const fundInserts = funds.map((fund) => {
     price_snapshot: Number(fundPrice?.price.toFixed(2)),
     description: fund.company.description,
     exchange_id: fund.exchangeIds[0],
-    fund_name: fund.company.name,
+    name: fund.company.name,
     image_id: fund.imageId,
     isin: fund.isin,
     type_id: fund.typeId,

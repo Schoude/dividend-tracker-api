@@ -200,7 +200,7 @@ router
         );
 
         return {
-          name: fund.fund_name,
+          name: fund.name,
           isin: fund.isin,
           totalAmount,
           averagePrice,

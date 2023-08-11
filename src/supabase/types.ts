@@ -265,7 +265,7 @@ export interface Database {
           distribution_frequency: string | null;
           exchange_id: string | null;
           focus: string | null;
-          fund_name: string | null;
+          name: string | null;
           id: number;
           image_id: string | null;
           isin: string | null;
@@ -279,7 +279,7 @@ export interface Database {
           distribution_frequency?: string | null;
           exchange_id?: string | null;
           focus?: string | null;
-          fund_name?: string | null;
+          name?: string | null;
           id?: number;
           image_id?: string | null;
           isin?: string | null;
@@ -293,7 +293,7 @@ export interface Database {
           distribution_frequency?: string | null;
           exchange_id?: string | null;
           focus?: string | null;
-          fund_name?: string | null;
+          name?: string | null;
           id?: number;
           image_id?: string | null;
           isin?: string | null;
@@ -479,7 +479,7 @@ export interface Database {
         Row: {
           analyst_rating_id: number | null;
           company_info_id: number | null;
-          company_name: string | null;
+          name: string | null;
           created_at: string | null;
           distribution_frequency: string | null;
           exchange_id: string | null;
@@ -495,7 +495,7 @@ export interface Database {
         Insert: {
           analyst_rating_id?: number | null;
           company_info_id?: number | null;
-          company_name?: string | null;
+          name?: string | null;
           created_at?: string | null;
           distribution_frequency?: string | null;
           exchange_id?: string | null;
@@ -511,7 +511,7 @@ export interface Database {
         Update: {
           analyst_rating_id?: number | null;
           company_info_id?: number | null;
-          company_name?: string | null;
+          name?: string | null;
           created_at?: string | null;
           distribution_frequency?: string | null;
           exchange_id?: string | null;

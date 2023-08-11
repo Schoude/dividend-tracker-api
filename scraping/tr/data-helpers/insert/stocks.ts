@@ -24,7 +24,7 @@ const stocksInstruments = instruments.filter((instrument) =>
     exchange_id: stock.exchangeIds[0],
     image_id: stock.imageId,
     intl_symbol: stock.intlSymbol === '' ? null : stock.intlSymbol,
-    company_name: stock.company.name,
+    name: stock.company.name,
     ipo_date: stock.company.ipoDate,
     isin: stock.isin,
     type_id: stock.typeId,
@@ -53,7 +53,7 @@ const stocksInstrumentsWatchlist = instrumentsWatchlist.filter((instrument) =>
     exchange_id: stock.exchangeIds[0],
     image_id: stock.imageId,
     intl_symbol: stock.intlSymbol === '' ? null : stock.intlSymbol,
-    company_name: stock.company.name,
+    name: stock.company.name,
     ipo_date: stock.company.ipoDate,
     isin: stock.isin,
     type_id: stock.typeId,
@@ -103,14 +103,14 @@ await Promise.all([
 // Get the stock with the company_infos, analyst_ratings and sectors
 const { data, error } = await supabase.from('stocks')
   .select(`
-    company_name,
+    name,
     company_infos (description),
     analyst_ratings (recommendations_buy),
     sectors (
       name
     )
   `)
-  .eq('company_name', 'BASF');
+  .eq('name', 'BASF');
 
 console.log({ data });
 console.log({ error });

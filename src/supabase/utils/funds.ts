@@ -10,7 +10,7 @@ export async function getFundsByISINs(fundIsins: string[]) {
         distribution_frequency,
         exchange_id,
         focus,
-        fund_name,
+        name,
         image_id,
         price_snapshot,
         type_id,
