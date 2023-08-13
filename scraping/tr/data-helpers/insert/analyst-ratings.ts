@@ -12,12 +12,12 @@ const analystRatings = stockDetails.map((stock) => {
     recommendations_underperform:
       stock.analystRating.recommendations.underperform,
     target_price_average: Number(
-      (stock.analystRating.targetPrice.average).toFixed(2),
+      stock.analystRating.targetPrice.average.toFixed(2),
     ),
     target_price_high: Number(
-      (stock.analystRating.targetPrice.high).toFixed(2),
+      stock.analystRating.targetPrice.high.toFixed(2),
     ),
-    target_price_low: Number((stock.analystRating.targetPrice.low).toFixed(2)),
+    target_price_low: Number(stock.analystRating.targetPrice.low.toFixed(2)),
   };
 });
 
