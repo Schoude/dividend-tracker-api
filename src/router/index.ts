@@ -282,6 +282,137 @@ router
         const stockResponse = await supabase
           .from('stocks')
           .select(`
+            isin,
+            intl_symbol,
+            name,
+            price_snapshot,
+            ipo_date,
+            type_id,
+            exchange_id,
+            image_id,
+            distribution_frequency,
+            company_infos (
+              isin,
+              name,
+              description,
+              yearfounded,
+              peratiosnapshot,
+              pbratiosnapshot,
+              dividendyieldsnapshot,
+              marketcapsnapshot,
+              beta,
+              countrycode,
+              ceoname,
+              cfoname,
+              cooname,
+              employeecount,
+              eps
+            ),
+            analyst_ratings (
+              target_price_high,
+              target_price_average,
+              target_price_low,
+              recommendations_buy,
+              recommendations_outperform,
+              recommendations_hold,
+              recommendations_underperform
+            ),
+            sectors (
+              name,
+              icon
+            ),
+            company_events (
+              title,
+              description,
+              timestamp
+            ),
+            dividends_stock (
+              isin,
+              ex_date_unix,
+              ex_date_iso,
+              payment_date_unix,
+              payment_date_iso,
+              amount,
+              info
+            )
+          `)
+          .order('timestamp', {
+            foreignTable: 'company_events',
+            ascending: true,
+          })
+          .order('ex_date_unix', {
+            foreignTable: 'dividends_stock',
+            ascending: false,
+          })
+          .eq('isin', instrumentIsin)
+          .single();
+
+        if (stockResponse.error) {
+          context.response.status = Status.InternalServerError;
+          context.response.body = {
+            error: stockResponse.error,
+          };
+
+          return;
+        }
+
+        if (stockResponse.data) {
+          context.response.status = Status.OK;
+          context.response.body = {
+            data: stockResponse.data,
+          };
+
+          return;
+        }
+      }
+    } catch (error) {
+      context.response.status = Status.InternalServerError;
+      context.response.body = {
+        error: (error as Error).message,
+      };
+    }
+  })
+  .get('/instruments/recommendations/:isin', async (context) => {
+    const instrumentIsin = context.params.isin;
+
+    try {
+      const fundResponse = await supabase
+        .from('funds')
+        .select(`
+          isin,
+          description,
+          distribution_frequency,
+          exchange_id,
+          focus,
+          name,
+          image_id,
+          price_snapshot,
+          type_id,
+          sectors (
+            name,
+            icon
+          ),
+          dividends_fund (
+            isin,
+            ex_date_unix,
+            ex_date_iso,
+            record_date_iso,
+            record_date_unix,
+            payment_date_unix,
+            payment_date_iso,
+            amount
+          )
+        `)
+        .order('ex_date_unix', {
+          foreignTable: 'dividends_fund',
+          ascending: false,
+        })
+        .order('name')
+        .neq('isin', instrumentIsin);
+
+      const stockResponse = await supabase
+        .from('stocks')
+        .select(`
           isin,
           intl_symbol,
           name,
@@ -336,34 +467,45 @@ router
             info
           )
         `)
-          .order('timestamp', {
-            foreignTable: 'company_events',
-            ascending: true,
-          })
-          .order('ex_date_unix', {
-            foreignTable: 'dividends_stock',
-            ascending: false,
-          })
-          .eq('isin', instrumentIsin)
-          .single();
+        .order('timestamp', {
+          foreignTable: 'company_events',
+          ascending: true,
+        })
+        .order('ex_date_unix', {
+          foreignTable: 'dividends_stock',
+          ascending: false,
+        })
+        .order('name')
+        .neq('isin', instrumentIsin);
 
-        if (stockResponse.error) {
-          context.response.status = Status.InternalServerError;
-          context.response.body = {
-            error: stockResponse.error,
-          };
+      if (stockResponse.error) {
+        context.response.status = Status.InternalServerError;
+        context.response.body = {
+          error: stockResponse.error,
+        };
 
-          return;
-        }
+        return;
+      }
 
-        if (stockResponse.data) {
-          context.response.status = Status.OK;
-          context.response.body = {
-            data: stockResponse.data,
-          };
+      if (fundResponse.error) {
+        context.response.status = Status.InternalServerError;
+        context.response.body = {
+          error: fundResponse.error,
+        };
 
-          return;
-        }
+        return;
+      }
+
+      if (stockResponse.data && fundResponse.data) {
+        context.response.status = Status.OK;
+        context.response.body = {
+          data: {
+            stocks: stockResponse.data,
+            funds: fundResponse.data,
+          },
+        };
+
+        return;
       }
     } catch (error) {
       context.response.status = Status.InternalServerError;
