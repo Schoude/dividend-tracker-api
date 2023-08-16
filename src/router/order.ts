@@ -27,6 +27,7 @@ const OrderSchema = object({
   isNew: optional(boolean()),
   type: union([literal('buy'), literal('sell')]),
   instrumentType: union([literal('stock'), literal('fund')]),
+  timestamp: optional(number()),
 });
 
 orderRouter
@@ -49,6 +50,7 @@ orderRouter
           price,
           type,
           name,
+          timestamp,
         } = parse(OrderSchema, body);
 
         const orderResponse = await supabase
@@ -62,7 +64,7 @@ orderRouter
             name,
             price,
             order_id: crypto.randomUUID(),
-            timestamp: Date.now(),
+            timestamp: timestamp ?? Date.now(),
           })
           .select('*')
           .single();
@@ -126,6 +128,7 @@ orderRouter
           price,
           type,
           name,
+          timestamp,
         } = parse(OrderSchema, body);
 
         if (currentAmount == null) {
@@ -150,7 +153,7 @@ orderRouter
             name,
             price,
             order_id: crypto.randomUUID(),
-            timestamp: Date.now(),
+            timestamp: timestamp ?? Date.now(),
           })
           .select('*')
           .single();
