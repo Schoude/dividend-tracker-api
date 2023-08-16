@@ -100,6 +100,84 @@ orderRouter
         error: (error as ValiError).message,
       };
     }
+  })
+  .post('/order/sell', async (context) => {
+    const body = await context.request.body({ type: 'json' }).value;
+
+    try {
+      const {
+        portfolioId,
+        currentAmount,
+        amount,
+        instrumentType,
+        isin,
+        price,
+        type,
+        name,
+      } = parse(OrderSchema, body);
+
+      if (currentAmount == null) {
+        context.response.status = Status.UnprocessableEntity;
+        context.response.body = {
+          error: 'Input for "currentAmount" needed.',
+        };
+
+        return;
+      }
+
+      const removePosition = currentAmount - amount <= 0;
+
+      const orderResponse = await supabase
+        .from('orders')
+        .insert({
+          portfolio_id: portfolioId,
+          amount_changed: amount,
+          type,
+          instrument_type: instrumentType,
+          isin,
+          name,
+          price,
+          order_id: crypto.randomUUID(),
+          timestamp: Date.now(),
+        })
+        .select('*')
+        .single();
+
+      if (orderResponse.error) {
+        context.response.status = Status.UnprocessableEntity;
+        context.response.body = {
+          error: orderResponse.error,
+        };
+
+        return;
+      }
+
+      if (removePosition) {
+        const positionsResponse = await supabase
+          .from('positions')
+          .delete()
+          .eq('isin', isin);
+
+        if (positionsResponse.error) {
+          context.response.status = Status.UnprocessableEntity;
+          context.response.body = {
+            error: positionsResponse.error,
+          };
+
+          return;
+        }
+      }
+
+      context.response.status = Status.Created;
+      context.response.body = {
+        data: orderResponse.data,
+      };
+    } catch (error) {
+      context.response.status = Status.UnprocessableEntity;
+      context.response.body = {
+        error: (error as ValiError).message,
+      };
+    }
   });
 
 export { orderRouter };
