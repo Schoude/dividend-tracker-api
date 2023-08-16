@@ -15,6 +15,7 @@ import {
   type ValiError,
 } from 'valibot';
 import { supabase } from '../supabase/client.ts';
+import { oakCors } from 'cors';
 
 const OrderSchema = object({
   portfolioId: number(),
@@ -30,154 +31,166 @@ const OrderSchema = object({
 
 orderRouter
   .prefix('/api')
-  .post('/order/buy', async (context) => {
-    const body = await context.request.body({ type: 'json' }).value;
+  .post(
+    '/order/buy',
+    oakCors({
+      origin: /^.+localhost:(3000|8085)$/,
+    }),
+    async (context) => {
+      const body = await context.request.body({ type: 'json' }).value;
 
-    try {
-      const {
-        isNew,
-        portfolioId,
-        amount,
-        instrumentType,
-        isin,
-        price,
-        type,
-        name,
-      } = parse(OrderSchema, body);
-
-      const orderResponse = await supabase
-        .from('orders')
-        .insert({
-          portfolio_id: portfolioId,
-          amount_changed: amount,
-          type,
-          instrument_type: instrumentType,
+      try {
+        const {
+          isNew,
+          portfolioId,
+          amount,
+          instrumentType,
           isin,
-          name,
           price,
-          order_id: crypto.randomUUID(),
-          timestamp: Date.now(),
-        })
-        .select('*')
-        .single();
+          type,
+          name,
+        } = parse(OrderSchema, body);
 
-      if (orderResponse.error) {
-        context.response.status = Status.UnprocessableEntity;
-        context.response.body = {
-          error: orderResponse.error,
-        };
-
-        return;
-      }
-
-      if (isNew) {
-        const positionsResponse = await supabase
-          .from('positions')
+        const orderResponse = await supabase
+          .from('orders')
           .insert({
-            isin,
             portfolio_id: portfolioId,
+            amount_changed: amount,
+            type,
             instrument_type: instrumentType,
+            isin,
+            name,
+            price,
+            order_id: crypto.randomUUID(),
+            timestamp: Date.now(),
           })
+          .select('*')
           .single();
 
-        if (positionsResponse.error) {
+        if (orderResponse.error) {
           context.response.status = Status.UnprocessableEntity;
           context.response.body = {
-            error: positionsResponse.error,
+            error: orderResponse.error,
           };
 
           return;
         }
-      }
 
-      context.response.status = Status.Created;
-      context.response.body = {
-        data: orderResponse.data,
-      };
-    } catch (error) {
-      context.response.status = Status.UnprocessableEntity;
-      context.response.body = {
-        error: (error as ValiError).message,
-      };
-    }
-  })
-  .post('/order/sell', async (context) => {
-    const body = await context.request.body({ type: 'json' }).value;
+        if (isNew) {
+          const positionsResponse = await supabase
+            .from('positions')
+            .insert({
+              isin,
+              portfolio_id: portfolioId,
+              instrument_type: instrumentType,
+            })
+            .single();
 
-    try {
-      const {
-        portfolioId,
-        currentAmount,
-        amount,
-        instrumentType,
-        isin,
-        price,
-        type,
-        name,
-      } = parse(OrderSchema, body);
+          if (positionsResponse.error) {
+            context.response.status = Status.UnprocessableEntity;
+            context.response.body = {
+              error: positionsResponse.error,
+            };
 
-      if (currentAmount == null) {
+            return;
+          }
+        }
+
+        context.response.status = Status.Created;
+        context.response.body = {
+          data: orderResponse.data,
+        };
+      } catch (error) {
         context.response.status = Status.UnprocessableEntity;
         context.response.body = {
-          error: 'Input for "currentAmount" needed.',
+          error: (error as ValiError).message,
         };
-
-        return;
       }
+    },
+  )
+  .post(
+    '/order/sell',
+    oakCors({
+      origin: /^.+localhost:(3000|8085)$/,
+    }),
+    async (context) => {
+      const body = await context.request.body({ type: 'json' }).value;
 
-      const removePosition = currentAmount - amount <= 0;
-
-      const orderResponse = await supabase
-        .from('orders')
-        .insert({
-          portfolio_id: portfolioId,
-          amount_changed: amount,
-          type,
-          instrument_type: instrumentType,
+      try {
+        const {
+          portfolioId,
+          currentAmount,
+          amount,
+          instrumentType,
           isin,
-          name,
           price,
-          order_id: crypto.randomUUID(),
-          timestamp: Date.now(),
-        })
-        .select('*')
-        .single();
+          type,
+          name,
+        } = parse(OrderSchema, body);
 
-      if (orderResponse.error) {
-        context.response.status = Status.UnprocessableEntity;
-        context.response.body = {
-          error: orderResponse.error,
-        };
-
-        return;
-      }
-
-      if (removePosition) {
-        const positionsResponse = await supabase
-          .from('positions')
-          .delete()
-          .eq('isin', isin);
-
-        if (positionsResponse.error) {
+        if (currentAmount == null) {
           context.response.status = Status.UnprocessableEntity;
           context.response.body = {
-            error: positionsResponse.error,
+            error: 'Input for "currentAmount" needed.',
           };
 
           return;
         }
-      }
 
-      context.response.status = Status.Created;
-      context.response.body = {
-        data: orderResponse.data,
-      };
-    } catch (error) {
-      context.response.status = Status.UnprocessableEntity;
-      context.response.body = {
-        error: (error as ValiError).message,
-      };
-    }
-  });
+        const removePosition = currentAmount - amount <= 0;
+
+        const orderResponse = await supabase
+          .from('orders')
+          .insert({
+            portfolio_id: portfolioId,
+            amount_changed: amount,
+            type,
+            instrument_type: instrumentType,
+            isin,
+            name,
+            price,
+            order_id: crypto.randomUUID(),
+            timestamp: Date.now(),
+          })
+          .select('*')
+          .single();
+
+        if (orderResponse.error) {
+          context.response.status = Status.UnprocessableEntity;
+          context.response.body = {
+            error: orderResponse.error,
+          };
+
+          return;
+        }
+
+        if (removePosition) {
+          const positionsResponse = await supabase
+            .from('positions')
+            .delete()
+            .eq('isin', isin);
+
+          if (positionsResponse.error) {
+            context.response.status = Status.UnprocessableEntity;
+            context.response.body = {
+              error: positionsResponse.error,
+            };
+
+            return;
+          }
+        }
+
+        context.response.status = Status.Created;
+        context.response.body = {
+          data: orderResponse.data,
+        };
+      } catch (error) {
+        context.response.status = Status.UnprocessableEntity;
+        context.response.body = {
+          error: (error as ValiError).message,
+        };
+      }
+    },
+  );
 
 export { orderRouter };
