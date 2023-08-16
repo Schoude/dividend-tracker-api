@@ -140,7 +140,16 @@ router
         );
 
         const totalAmount = ordersOfStock?.reduce((acc, order) => {
-          acc += order.amount_changed ?? 0;
+          switch (order.type) {
+            case 'buy': {
+              acc += order.amount_changed ?? 0;
+              break;
+            }
+            case 'sell': {
+              acc -= order.amount_changed ?? 0;
+              break;
+            }
+          }
 
           return acc;
         }, 0)!;
@@ -179,7 +188,16 @@ router
         );
 
         const totalAmount = ordersOfFund?.reduce((acc, order) => {
-          acc += order.amount_changed ?? 0;
+          switch (order.type) {
+            case 'buy': {
+              acc += order.amount_changed ?? 0;
+              break;
+            }
+            case 'sell': {
+              acc -= order.amount_changed ?? 0;
+              break;
+            }
+          }
 
           return acc;
         }, 0)!;
