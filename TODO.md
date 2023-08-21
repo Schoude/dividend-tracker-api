@@ -10,9 +10,11 @@ Project Description
 
 ### In Progress
 
+- [ ] update existing instruments. price, company info etc.
 
 ### Done ✓
 
+- [x] auth endpoints for TR (regular login and 2FA login)
 - [x] Add route to SELL an instrument for a portfolio. Delete the instrument form the portolio positions if the amount is 0.
 - [x] Add route to BUY an instrument for a portfolio. Also handle new instruments -> frontend should provide `isNew` boolean
 - [x] add user relation to portfolios table
