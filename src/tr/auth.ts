@@ -1,6 +1,5 @@
-import { TR_API_URL, TR_SESSION_KEY } from '../../scraping/tr/constants.ts';
+import { TR_API_URL } from '../../scraping/tr/constants.ts';
 import { load } from 'std/dotenv/mod.ts';
-import { kv } from '../../scraping/tr/kv/index.ts';
 import { LoginOptions2FA } from './types.ts';
 
 const env = await load();
