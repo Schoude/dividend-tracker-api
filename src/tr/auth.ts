@@ -18,8 +18,6 @@ export async function authorizeTR() {
   let loginCookies: string[] = [];
 
   try {
-    console.log(green('Send login request.'));
-
     const loginResponse = await fetch(`${TR_API_URL}/v1/auth/web/login`, {
       method: 'POST',
       headers: {
@@ -29,8 +27,6 @@ export async function authorizeTR() {
     });
 
     loginCookies = loginResponse.headers.getSetCookie();
-
-    console.log('loginCookies non 2FA', loginCookies);
 
     const trSessionString = loginResponse.headers.getSetCookie().find((
       cookieString,
@@ -63,8 +59,6 @@ export async function auth2faTR(
   }: LoginOptions2FA,
 ) {
   try {
-    console.log(green('Send 2FA request.'));
-
     const response2FA = await fetch(
       `${TR_API_URL}/v1/auth/web/login/${processId}/${pin2FA}`,
       {
