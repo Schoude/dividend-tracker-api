@@ -1,8 +1,8 @@
-import { maxLength, object, parse } from 'valibot';
+import { maxLength, minLength, object, parse } from 'valibot';
 import { Router } from 'oak';
 import { string } from 'valibot';
 import { auth2faTR, authorizeTR } from '../tr/auth.ts';
-import { Status } from 'https://deno.land/std@0.193.0/http/http_status.ts';
+import { Status } from 'oak';
 import { TR_SESSION_KEY } from '../../scraping/tr/constants.ts';
 import { kv } from '../../scraping/tr/kv/index.ts';
 import { oakCors } from 'cors';
@@ -10,7 +10,7 @@ import { oakCors } from 'cors';
 const trRouter = new Router();
 
 const Auth2faSchema = object({
-  pin: string([maxLength(4)]),
+  pin: string([minLength(4), maxLength(4)]),
   processId: string(),
   loginCookies: string(),
 });
