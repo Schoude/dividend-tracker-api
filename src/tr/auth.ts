@@ -1,4 +1,3 @@
-import { green } from 'std/fmt/colors.ts';
 import { TR_API_URL, TR_SESSION_KEY } from '../../scraping/tr/constants.ts';
 import { load } from 'std/dotenv/mod.ts';
 import { kv } from '../../scraping/tr/kv/index.ts';
