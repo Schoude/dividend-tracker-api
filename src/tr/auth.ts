@@ -33,9 +33,10 @@ export async function authorizeTR() {
 
     if (trSessionString) {
       const trSession = trSessionString.split('=')[1].replace('; Path', '');
-      await kv.set([TR_SESSION_KEY], trSession);
 
-      return;
+      return {
+        trSession,
+      };
     }
 
     const data = await loginResponse.json() as { processId: string };
