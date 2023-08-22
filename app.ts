@@ -7,6 +7,12 @@ import { trRouter } from './src/router/tr.ts';
 
 const app = new Application();
 
+app.use(oakCors({
+  origin: [
+    /^.+localhost:(3000|8085)$/,
+  ],
+}));
+
 app.use(authRouter.routes());
 app.use(authRouter.allowedMethods());
 app.use(router.routes());
@@ -19,7 +25,5 @@ app.use(trRouter.allowedMethods());
 app.use((ctx) => {
   ctx.response.body = 'Welcome to the Dividend Tracker API!';
 });
-
-app.use(oakCors());
 
 await app.listen({ port: 8000 });

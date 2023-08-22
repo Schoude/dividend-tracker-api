@@ -15,7 +15,6 @@ import {
   type ValiError,
 } from 'valibot';
 import { supabase } from '../supabase/client.ts';
-import { oakCors } from 'cors';
 
 const OrderSchema = object({
   portfolioId: number(),
@@ -40,9 +39,6 @@ orderRouter
   .prefix('/api')
   .post(
     '/order/buy',
-    oakCors({
-      origin: /^.+localhost:(3000|8085)$/,
-    }),
     async (context) => {
       const body = await context.request.body({ type: 'json' }).value;
 
@@ -118,9 +114,6 @@ orderRouter
   )
   .post(
     '/order/sell',
-    oakCors({
-      origin: /^.+localhost:(3000|8085)$/,
-    }),
     async (context) => {
       const body = await context.request.body({ type: 'json' }).value;
 
@@ -204,9 +197,6 @@ orderRouter
   )
   .post(
     '/order/delete',
-    oakCors({
-      origin: /^.+localhost:(3000|8085)$/,
-    }),
     async (context) => {
       const body = await context.request.body({ type: 'json' }).value;
 

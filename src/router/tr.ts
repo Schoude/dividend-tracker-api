@@ -5,7 +5,6 @@ import { auth2faTR, authorizeTR } from '../tr/auth.ts';
 import { Status } from 'oak';
 import { TR_SESSION_KEY } from '../../scraping/tr/constants.ts';
 import { kv } from '../../scraping/tr/kv/index.ts';
-import { oakCors } from 'cors';
 
 const trRouter = new Router();
 
@@ -19,9 +18,6 @@ trRouter
   .prefix('/api/tr')
   .get(
     '/login',
-    oakCors({
-      origin: /^.+localhost:(3000|8085)$/,
-    }),
     async (context) => {
       const authResult = await authorizeTR();
 
@@ -45,9 +41,6 @@ trRouter
   )
   .post(
     '/login/2fa',
-    oakCors({
-      origin: /^.+localhost:(3000|8085)$/,
-    }),
     async (context) => {
       const body = await context.request.body({ type: 'json' }).value;
 
