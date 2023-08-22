@@ -16,63 +16,53 @@ const Auth2faSchema = object({
 
 trRouter
   .prefix('/api/tr')
-  .get(
-    '/login',
-    async (context) => {
-      const authResult = await authorizeTR();
+  .get('/login', async (context) => {
+    const authResult = await authorizeTR();
 
-      if (authResult?.trSession != null) {
-        context.response.status = Status.OK;
-        context.response.body = {
-          message: 'Succesfully logged in for TR.',
-        };
-
-        await kv.set([TR_SESSION_KEY], authResult.trSession);
-        context.cookies.set('tr_session', authResult.trSession);
-
-        return;
-      }
-
-      context.response.status = Status.Unauthorized;
-      context.response.body = {
-        data: authResult,
-      };
-    },
-  )
-  .post(
-    '/login/2fa',
-    async (context) => {
-      const body = await context.request.body({ type: 'json' }).value;
-
-      console.log(body);
-
-      const data = parse(Auth2faSchema, body);
-
-      const trSession = await auth2faTR(data.pin, {
-        processId: data.processId,
-        loginCookies: data.loginCookies,
-      });
-
-      if (trSession == null) {
-        context.response.status = Status.Unauthorized;
-        context.response.body = {
-          message: '2FA login failed for TR',
-        };
-
-        return;
-      }
-
-      await kv.set([TR_SESSION_KEY], trSession);
-      context.cookies.set('tr_session', trSession);
-
+    if (authResult?.trSession != null) {
       context.response.status = Status.OK;
       context.response.body = {
-        message: 'Succesfully logged in with 2FA for TR.',
-        data: {
-          trSession,
-        },
+        message: 'Succesfully logged in for TR.',
       };
-    },
-  );
+
+      await kv.set([TR_SESSION_KEY], authResult.trSession);
+
+      return;
+    }
+
+    context.response.status = Status.Unauthorized;
+    context.response.body = {
+      data: authResult,
+    };
+  })
+  .post('/login/2fa', async (context) => {
+    const body = await context.request.body({ type: 'json' }).value;
+
+    const data = parse(Auth2faSchema, body);
+
+    const trSession = await auth2faTR(data.pin, {
+      processId: data.processId,
+      loginCookies: data.loginCookies,
+    });
+
+    if (trSession == null) {
+      context.response.status = Status.Unauthorized;
+      context.response.body = {
+        message: '2FA login failed for TR',
+      };
+
+      return;
+    }
+
+    await kv.set([TR_SESSION_KEY], trSession);
+
+    context.response.status = Status.OK;
+    context.response.body = {
+      message: 'Succesfully logged in with 2FA for TR.',
+      data: {
+        trSession,
+      },
+    };
+  });
 
 export { trRouter };
