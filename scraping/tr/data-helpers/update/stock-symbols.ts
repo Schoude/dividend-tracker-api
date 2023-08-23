@@ -18,7 +18,6 @@ const trStocksWithBadSymbols = [
     name: 'Rio Tinto',
     intl_symbol: 'RIO',
   },
-
   {
     isin: 'US1270971039',
     name: 'Coterra Energy',
@@ -84,6 +83,16 @@ const trStocksWithBadSymbols = [
     isin: 'GB0002875804',
     name: 'British American Tobacco',
     intl_symbol: 'BTI',
+  },
+  {
+    isin: 'DE0008404005',
+    name: 'Allianz SE',
+    intl_symbol: 'ALIZF',
+  },
+  {
+    isin: 'GB00B10RZP78',
+    name: 'Unilever',
+    intl_symbol: 'UL',
   },
   // ### EXCEPTIONS because they don't pay dividends
   // or are not listed in dividendhistory
