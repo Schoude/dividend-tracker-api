@@ -7,8 +7,7 @@ import {
   string,
   type ValiError,
 } from 'valibot';
-import { Router } from 'oak';
-import { Status } from 'https://deno.land/std@0.193.0/http/http_status.ts';
+import { Router, Status } from 'oak';
 import { supabase } from '../supabase/client.ts';
 import * as bcrypt from 'bcrypt';
 import { Hash } from 'checksum';

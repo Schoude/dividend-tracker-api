@@ -1,5 +1,4 @@
-import { Status } from 'https://deno.land/std@0.193.0/http/http_status.ts';
-import { Router } from 'oak';
+import { Router, Status } from 'oak';
 import { supabase } from '../supabase/client.ts';
 import { getStocksByISINs } from '../supabase/utils/stocks.ts';
 import { getFundsByISINs } from '../supabase/utils/funds.ts';
