@@ -6,11 +6,20 @@ Project Description
 
 ### Todo
 
+- [ ] save USD/EUR exchange rate in db -> scrape from here
+      https://www.comdirect.de/inf/waehrungen/us_dollar-euro-kurs
 - [ ] auth through supabase
 
 ### In Progress
 
-- [ ] update existing instruments. price, company info etc.
+- [ ] update existing instruments
+      - [x] prices stocks
+      - [x] prices funds
+      - [ ] company info
+      - [ ] company events
+      - [ ] analyst ratings
+      - [ ] dividends stocks
+      - [ ] dividends funds
 
 ### Done ✓
 

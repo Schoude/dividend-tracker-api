@@ -42,7 +42,10 @@
   },
   "fmt": {
     "singleQuote": true,
-    "indentWidth": 2
+    "indentWidth": 2,
+    "exclude": [
+      "TODO.md"
+    ]
   },
   "importMap": "./import_map.json"
 }

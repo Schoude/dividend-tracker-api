@@ -4,7 +4,7 @@ const fundsRefreshRouter = new Router();
 
 fundsRefreshRouter
   .prefix('/api')
-  .get('/refresh/funds', (context) => {
+  .get('/refresh/funds/info', (context) => {
     context.response.status = Status.OK;
   })
   .get('/refresh/funds/dividends', (context) => {
