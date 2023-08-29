@@ -530,6 +530,26 @@ router
         error: (error as Error).message,
       };
     }
+  })
+  .get('/exchange-rates', async (context) => {
+    const { data, error } = await supabase
+      .from('exchange_rates')
+      .select('usd_eur, eur_usd, updated_at')
+      .single();
+
+    if (error) {
+      context.response.status = Status.InternalServerError;
+      context.response.body = {
+        error: error.details,
+      };
+
+      return;
+    }
+
+    context.response.status = Status.OK;
+    context.response.body = {
+      data,
+    };
   });
 
 export { router };
