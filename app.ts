@@ -8,6 +8,7 @@ import { stocksRefreshRouter } from './src/router/refresh/stocks.ts';
 import { fundsRefreshRouter } from './src/router/refresh/funds.ts';
 import { watchlistRefreshRouter } from './src/router/refresh/watchlist.ts';
 import { pricesRefreshRouter } from './src/router/refresh/prices.ts';
+import { exchangeRatesRefreshRouter } from './src/router/refresh/exchange-rates.ts';
 
 const app = new Application();
 
@@ -34,6 +35,8 @@ app.use(fundsRefreshRouter.routes());
 app.use(fundsRefreshRouter.allowedMethods());
 app.use(watchlistRefreshRouter.routes());
 app.use(watchlistRefreshRouter.allowedMethods());
+app.use(exchangeRatesRefreshRouter.routes());
+app.use(exchangeRatesRefreshRouter.allowedMethods());
 
 app.use((ctx) => {
   ctx.response.body = 'Welcome to the Dividend Tracker API!';
