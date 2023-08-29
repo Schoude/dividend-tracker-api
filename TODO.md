@@ -6,8 +6,6 @@ Project Description
 
 ### Todo
 
-- [ ] save USD/EUR exchange rate in db -> scrape from here
-      https://www.comdirect.de/inf/waehrungen/us_dollar-euro-kurs
 - [ ] auth through supabase
 
 ### In Progress
@@ -23,6 +21,8 @@ Project Description
 
 ### Done ✓
 
+- [x] endpoint to update the exchange rates table
+- [x] add exchange rates table
 - [x] auth endpoints for TR (regular login and 2FA login)
 - [x] Add route to SELL an instrument for a portfolio. Delete the instrument
       form the portolio positions if the amount is 0.
