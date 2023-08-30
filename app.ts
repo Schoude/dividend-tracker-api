@@ -14,7 +14,7 @@ const app = new Application();
 
 app.use(oakCors({
   origin: [
-    /^.+localhost:(3000|8085)$/,
+    /^.+localhost:(3000|4321|8085)$/,
   ],
 }));
 
