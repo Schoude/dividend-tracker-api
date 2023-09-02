@@ -1,13 +1,11 @@
 import { helpers, Status } from 'oak';
 import { supabase } from '../supabase/client.ts';
 import { bgRed, green } from 'std/fmt/colors.ts';
-import { authorize } from '../../scraping/tr/auth.ts';
 import {
   TR_SESSION_KEY,
   WS_CONNECTION_TYPE,
 } from '../../scraping/tr/constants.ts';
 import { kv } from '../../scraping/tr/kv/index.ts';
-import { scrapePriceSnapshots } from '../../scraping/tr/scrapes/scrape-price-snapshots.ts';
 import { TickData } from '../../scraping/tr/types/price-snapshots.ts';
 import {
   extractJSONFromString,
@@ -80,7 +78,7 @@ export const updatePrices: RouterMiddleWareFunction = async (
 
       await kv.delete([TR_SESSION_KEY]);
 
-      await authorize(scrapePriceSnapshots);
+      context.response.status = Status.Unauthorized;
       return;
     }
 
