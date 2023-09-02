@@ -45,7 +45,8 @@ exchangeRatesRefreshRouter
       const { data, error } = await supabase.from('exchange_rates')
         .update({ usd_eur, eur_usd })
         .eq('id', 1)
-        .select('usd_eur, eur_usd, updated_at');
+        .select('usd_eur, eur_usd, updated_at')
+        .single();
 
       if (error) {
         console.log(error);
