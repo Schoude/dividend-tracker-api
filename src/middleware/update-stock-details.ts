@@ -61,6 +61,7 @@ export const updateStockDetails: RouterMiddleWareFunction = async (
     }
 
     processedInstrumentsCount++;
+
     trSocket.send(`unsub ${subId}`);
 
     const jsonString = extractJSONFromString<string>(event.data, {
@@ -143,13 +144,11 @@ export const updateStockDetails: RouterMiddleWareFunction = async (
       return;
     }
 
+    console.log(`Updated: ${stockDetail.isin}`);
+
     if (processedInstrumentsCount === data.length) {
       trSocket.close();
     }
-  };
-
-  trSocket.onclose = () => {
-    console.log('upsert the stock details');
   };
 
   return next();
