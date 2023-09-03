@@ -93,6 +93,7 @@ export const updateStockDetails: RouterMiddleWareFunction = async (
 
     const stockDetail = extractJSONFromString<StockDetail>(event.data);
 
+    // Analyst Ratings
     const analystRatingResult = await supabase
       .from('analyst_ratings')
       .update({
@@ -117,6 +118,7 @@ export const updateStockDetails: RouterMiddleWareFunction = async (
       return;
     }
 
+    // Company Infos
     const companyInfosResult = await supabase
       .from('company_infos')
       .update({
@@ -144,7 +146,45 @@ export const updateStockDetails: RouterMiddleWareFunction = async (
       return;
     }
 
-    console.log(`Updated: ${stockDetail.isin}`);
+    // Company Events
+    for (const event of stockDetail.events) {
+      const knownEvent = await supabase
+        .from('company_events')
+        .select('event_id')
+        .eq('event_id', event.id);
+
+      if (knownEvent.error || knownEvent.data.length > 0) {
+        continue;
+      }
+
+      const stock = data[subId];
+
+      const { data: insertedEvent, error } = await supabase
+        .from('company_events')
+        .insert({
+          isin: stock.isin,
+          event_id: event.id,
+          title: event.title,
+          description: event.description,
+          timestamp: event.timestamp,
+          stock_id: stock.id,
+        })
+        .select('event_id')
+        .single();
+
+      if (error) {
+        context.response.status = Status.InternalServerError;
+        context.response.body = {
+          error: error,
+        };
+
+        return;
+      }
+
+      console.log(`Event inserted: ${insertedEvent.event_id}`);
+    }
+
+    console.log(`Stock updated: ${stockDetail.isin}`);
 
     if (processedInstrumentsCount === data.length) {
       trSocket.close();
