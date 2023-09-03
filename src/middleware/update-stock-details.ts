@@ -93,6 +93,9 @@ export const updateStockDetails: RouterMiddleWareFunction = async (
 
     const stockDetail = extractJSONFromString<StockDetail>(event.data);
 
+    // TODO: add TR dividends AFTER the dividendhistory dividends have been updates
+    console.log(stockDetail.dividends);
+
     // Analyst Ratings
     const analystRatingResult = await supabase
       .from('analyst_ratings')
