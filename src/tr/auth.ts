@@ -3,9 +3,10 @@ import { load } from 'std/dotenv/mod.ts';
 import { LoginOptions2FA } from './types.ts';
 
 const env = await load();
-const phoneNumber = env['PHONE'];
-const pin = env['PIN'];
+const denoEnv = Deno.env.toObject();
 
+const phoneNumber = env['PHONE'] ?? denoEnv['PHONE'];
+const pin = env['PIN'] ?? denoEnv['PIN'];
 const credentials = {
   phoneNumber,
   pin,

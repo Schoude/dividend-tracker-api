@@ -5,8 +5,10 @@ import { kv } from './kv/index.ts';
 import { load } from 'std/dotenv/mod.ts';
 
 const env = await load();
-const phoneNumber = env['PHONE'];
-const pin = env['PIN'];
+const denoEnv = Deno.env.toObject();
+
+const phoneNumber = env['PHONE'] ?? denoEnv['PHONE'];
+const pin = env['PIN'] ?? denoEnv['PIN'];
 
 const flags = parse(Deno.args, {
   boolean: ['cli-auth'],

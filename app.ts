@@ -12,12 +12,11 @@ import { exchangeRatesRefreshRouter } from './src/router/refresh/exchange-rates.
 import { load } from 'std/dotenv/mod.ts';
 
 const app = new Application();
+
 const env = await load();
+const denoEnv = Deno.env.toObject();
 
-const myEnv = Deno.env.toObject();
-console.log(myEnv['CORS_ORIGINS']);
-
-const CORS_ORIGINS = JSON.parse(env['CORS_ORIGINS']);
+const CORS_ORIGINS = JSON.parse(env['CORS_ORIGINS'] ?? denoEnv['CORS_ORIGINS']);
 
 app.use(oakCors({
   origin: CORS_ORIGINS,
