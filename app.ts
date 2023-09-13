@@ -14,6 +14,9 @@ import { load } from 'std/dotenv/mod.ts';
 const app = new Application();
 const env = await load();
 
+const myEnv = Deno.env.toObject();
+console.log(myEnv['CORS_ORIGINS']);
+
 const CORS_ORIGINS = JSON.parse(env['CORS_ORIGINS']);
 
 app.use(oakCors({
