@@ -152,6 +152,8 @@ stocksRefreshRouter
         }
       }
 
+      // TODO: now get the missing dividends for stocks from trade republic.
+
       context.response.status = Status.OK;
     },
   );
