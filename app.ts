@@ -9,13 +9,15 @@ import { fundsRefreshRouter } from './src/router/refresh/funds.ts';
 import { watchlistRefreshRouter } from './src/router/refresh/watchlist.ts';
 import { pricesRefreshRouter } from './src/router/refresh/prices.ts';
 import { exchangeRatesRefreshRouter } from './src/router/refresh/exchange-rates.ts';
+import { load } from 'std/dotenv/mod.ts';
 
 const app = new Application();
+const env = await load();
+
+const CORS_ORIGINS = JSON.parse(env['CORS_ORIGINS']);
 
 app.use(oakCors({
-  origin: [
-    /^.+localhost:(3000|4321|8085)$/,
-  ],
+  origin: CORS_ORIGINS,
 }));
 
 app.use(authRouter.routes());
