@@ -258,6 +258,30 @@ export interface Database {
           },
         ];
       };
+      exchange_rates: {
+        Row: {
+          created_at: string | null;
+          eur_usd: number | null;
+          id: number;
+          updated_at: string | null;
+          usd_eur: number | null;
+        };
+        Insert: {
+          created_at?: string | null;
+          eur_usd?: number | null;
+          id?: never;
+          updated_at?: string | null;
+          usd_eur?: number | null;
+        };
+        Update: {
+          created_at?: string | null;
+          eur_usd?: number | null;
+          id?: never;
+          updated_at?: string | null;
+          usd_eur?: number | null;
+        };
+        Relationships: [];
+      };
       funds: {
         Row: {
           created_at: string | null;
@@ -265,10 +289,10 @@ export interface Database {
           distribution_frequency: string | null;
           exchange_id: string | null;
           focus: string | null;
-          name: string | null;
           id: number;
           image_id: string | null;
           isin: string | null;
+          name: string | null;
           price_snapshot: number | null;
           type_id: string | null;
           updated_at: string | null;
@@ -279,10 +303,10 @@ export interface Database {
           distribution_frequency?: string | null;
           exchange_id?: string | null;
           focus?: string | null;
-          name?: string | null;
           id?: number;
           image_id?: string | null;
           isin?: string | null;
+          name?: string | null;
           price_snapshot?: number | null;
           type_id?: string | null;
           updated_at?: string | null;
@@ -293,10 +317,10 @@ export interface Database {
           distribution_frequency?: string | null;
           exchange_id?: string | null;
           focus?: string | null;
-          name?: string | null;
           id?: number;
           image_id?: string | null;
           isin?: string | null;
+          name?: string | null;
           price_snapshot?: number | null;
           type_id?: string | null;
           updated_at?: string | null;
@@ -479,7 +503,6 @@ export interface Database {
         Row: {
           analyst_rating_id: number | null;
           company_info_id: number | null;
-          name: string | null;
           created_at: string | null;
           distribution_frequency: string | null;
           exchange_id: string | null;
@@ -488,6 +511,7 @@ export interface Database {
           intl_symbol: string | null;
           ipo_date: number | null;
           isin: string | null;
+          name: string | null;
           price_snapshot: number | null;
           type_id: string | null;
           updated_at: string | null;
@@ -495,7 +519,6 @@ export interface Database {
         Insert: {
           analyst_rating_id?: number | null;
           company_info_id?: number | null;
-          name?: string | null;
           created_at?: string | null;
           distribution_frequency?: string | null;
           exchange_id?: string | null;
@@ -504,6 +527,7 @@ export interface Database {
           intl_symbol?: string | null;
           ipo_date?: number | null;
           isin?: string | null;
+          name?: string | null;
           price_snapshot?: number | null;
           type_id?: string | null;
           updated_at?: string | null;
@@ -511,7 +535,6 @@ export interface Database {
         Update: {
           analyst_rating_id?: number | null;
           company_info_id?: number | null;
-          name?: string | null;
           created_at?: string | null;
           distribution_frequency?: string | null;
           exchange_id?: string | null;
@@ -520,6 +543,7 @@ export interface Database {
           intl_symbol?: string | null;
           ipo_date?: number | null;
           isin?: string | null;
+          name?: string | null;
           price_snapshot?: number | null;
           type_id?: string | null;
           updated_at?: string | null;
@@ -563,6 +587,37 @@ export interface Database {
             foreignKeyName: 'stocks_sectors_stock_id_fkey';
             columns: ['stock_id'];
             referencedRelation: 'stocks';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
+      user_sessions: {
+        Row: {
+          created_at: string | null;
+          hash: string | null;
+          id: number;
+          updated_at: string | null;
+          user_id: number | null;
+        };
+        Insert: {
+          created_at?: string | null;
+          hash?: string | null;
+          id?: never;
+          updated_at?: string | null;
+          user_id?: number | null;
+        };
+        Update: {
+          created_at?: string | null;
+          hash?: string | null;
+          id?: never;
+          updated_at?: string | null;
+          user_id?: number | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'user_sessions_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'users';
             referencedColumns: ['id'];
           },
         ];
