@@ -6,3 +6,4 @@ stocks.json
 .env
 scripts
 *.http
+.helix
